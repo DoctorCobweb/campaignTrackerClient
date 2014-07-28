@@ -1,0 +1,14 @@
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+    Select region 
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    <li role="presentation" class="dropdown-header">Region</li>
+    <li ng-repeat="region in dataRegions">
+      <a ui-sref="dashboard.region.selected.summary({region:dataToUrlRegions[region]})" ng-click="setRegion(region)">{{region}}</a>
+    </li>
+  </ul>
+</div>
+
+<div class="col-md-12" ui-view></div>

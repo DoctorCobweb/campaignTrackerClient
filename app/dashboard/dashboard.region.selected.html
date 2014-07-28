@@ -1,0 +1,15 @@
+<div class="col-md-12">
+  <div class="btn-group btn-group-justified">
+    <div class="btn-group">
+      <button type="button" class="btn btn-default" ng-click="nextState('summary')">Summary</button>
+    </div>
+    <div class="btn-group">
+      <button type="button" class="btn btn-default" ng-click="nextState('analysis')">Analysis</button>
+    </div>
+    <div class="btn-group">
+      <button type="button" class="btn btn-default" ng-click="nextState('tracking')">Tracking</button>
+    </div>
+  </div>
+  
+  <div ui-view class="col-md-12"></div>
+</div>

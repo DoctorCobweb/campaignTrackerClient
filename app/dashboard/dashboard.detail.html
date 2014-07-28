@@ -1,0 +1,202 @@
+<div class="col-md-12">
+  <h3>{{$stateParams.region}}</h3>
+
+  <div class="dashboard-tiles">
+    <h3>Door knocking</h3>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Goal</th>
+          <th>Current</th>
+          <th>% Complete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="test in stats.dk">
+          <td>{{test.metric}}</td>
+          <td>{{test.goal}}</td>
+          <td>{{test.current}}</td>
+          <td>{{test.percentComplete}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br/>
+  <div class="dashboard-tiles">
+    <h3>Phone Banking</h3>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Goal</th>
+          <th>Current</th>
+          <th>% Complete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="test in stats.pb">
+          <td>{{test.metric}}</td>
+          <td>{{test.goal}}</td>
+          <td>{{test.current}}</td>
+          <td>{{test.percentComplete}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br/>
+  <div class="dashboard-tiles">
+    <h3>Volunteer Recruitment Phone Calls</h3>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Goal</th>
+          <th>Current</th>
+          <th>% Complete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="test in stats.vrpc">
+          <td>{{test.metric}}</td>
+          <td>{{test.goal}}</td>
+          <td>{{test.current}}</td>
+          <td>{{test.percentComplete}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br/>
+  <div class="dashboard-tiles">
+    <h3>One On Ones</h3>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Goal</th>
+          <th>Current</th>
+          <th>% Complete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="test in stats.ooos">
+          <td>{{test.metric}}</td>
+          <td>{{test.goal}}</td>
+          <td>{{test.current}}</td>
+          <td>{{test.percentComplete}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br/>
+  <div class="dashboard-tiles">
+    <h3>Neighbourhood Team Meetings</h3>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Goal</th>
+          <th>Current</th>
+          <th>% Complete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="test in stats.ntms">
+          <td>{{test.metric}}</td>
+          <td>{{test.goal}}</td>
+          <td>{{test.current}}</td>
+          <td>{{test.percentComplete}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br/>
+  <div class="dashboard-tiles">
+    <h3>Volunteer House Gatherings</h3>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Goal</th>
+          <th>Current</th>
+          <th>% Complete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="test in stats.vhgs">
+          <td>{{test.metric}}</td>
+          <td>{{test.goal}}</td>
+          <td>{{test.current}}</td>
+          <td>{{test.percentComplete}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br/>
+  <div class="dashboard-tiles">
+    <h3>Stalls</h3>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Goal</th>
+          <th>Current</th>
+          <th>% Complete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="test in stats.ss">
+          <td>{{test.metric}}</td>
+          <td>{{test.goal}}</td>
+          <td>{{test.current}}</td>
+          <td>{{test.percentComplete}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br/>
+  <div class="dashboard-tiles">
+    <h3>Voter House Meetings</h3>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Goal</th>
+          <th>Current</th>
+          <th>% Complete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="test in stats.vhms">
+          <td>{{test.metric}}</td>
+          <td>{{test.goal}}</td>
+          <td>{{test.current}}</td>
+          <td>{{test.percentComplete}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br/>
+  <div class="dashboard-tiles">
+    <h3>Training Sessions</h3>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Goal</th>
+          <th>Current</th>
+          <th>% Complete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="test in stats.tss">
+          <td>{{test.metric}}</td>
+          <td>{{test.goal}}</td>
+          <td>{{test.current}}</td>
+          <td>{{test.percentComplete}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br/>
+</div>

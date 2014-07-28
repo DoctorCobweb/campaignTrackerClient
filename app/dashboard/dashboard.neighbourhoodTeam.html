@@ -1,0 +1,14 @@
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+    Select neighbourhood team 
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    <li role="presentation" class="dropdown-header">Neighbourhood team</li>
+    <li ng-repeat="team in dataNTeams">
+      <a ui-sref="dashboard.neighbourhoodTeam.summary({team:dataToUrlNTeams[team]})">{{team}}</a>
+    </li>
+  </ul>
+</div>
+
+<div class="col-md-12" ui-view></div>

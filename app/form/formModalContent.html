@@ -1,0 +1,49 @@
+<div class="modal-header">
+  <h3 class="modal-title">Please check that these details are correct:</h3>
+</div>
+<div class="modal-body">
+  <h3>Campaign Details</h3>
+  <ul>
+    <li>Region: {{data.campaignDetails.region}}</li>
+    <li>District: {{data.campaignDetails.district}}</li>
+    <li>Person: {{data.campaignDetails.personName}}</li>
+    <li>Neighbourhood Team: {{data.campaignDetails.neighbourhoodTeam}}</li>
+  </ul>
+
+  <h3>Activity Details</h3>
+  <ul>
+    <li>Type: {{data.activityDetails.activityType}}</li>
+    <li>Date: {{data.activityDetails.activityDate | date:'dd-MMMM-yyyy'}}</li>
+    <li>Start Time: {{data.activityDetails.activityStartTime | date:'shortTime'}}</li>
+    <li ng-show="data.activityDetails.attempts">
+      Attempts: {{data.activityDetails.attempts}}
+    </li>
+    <li ng-show="data.activityDetails.answered">
+      Answered: {{data.activityDetails.answered}}
+    </li>
+    <li ng-show="data.activityDetails.meaningfulInteractions">
+      Meaningful Interactions: {{data.activityDetails.meaningfulInteractions}}
+    </li>
+    <li ng-show="data.activityDetails.volTotalWorkHrs">
+      Total vol. work hours: {{data.activityDetails.volTotalWorkHrs}}
+    </li>
+    <li ng-show="data.activityDetails.volTotalTrainingHrs">
+      Total vol. training hours: {{data.activityDetails.volTotalTrainingHrs}}
+    </li>
+    <li ng-show="data.activityDetails.attendance">
+      Attendance: {{data.activityDetails.attendance}}
+    </li>
+    <li ng-show="data.activityDetails.volTotalHrsCommitted">
+      Total vol. hours committed: {{data.activityDetails.volTotalHrsCommitted}}
+    </li>
+    <li ng-show="data.activityDetails.comment">
+      Comment: {{data.activityDetails.comment}}
+    </li>
+  </ul>
+</div>
+
+<div class="modal-footer">
+  <button class="btn btn-primary" ng-click="ok()">OK</button>
+  <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>
+

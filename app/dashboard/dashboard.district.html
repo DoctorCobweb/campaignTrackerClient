@@ -1,0 +1,14 @@
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+    Select district 
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    <li role="presentation" class="dropdown-header">District</li>
+    <li ng-repeat="district in dataDistricts">
+      <a ui-sref="dashboard.district.selected.summary({district:dataToUrlDistricts[district]})" ng-click="setDistrict(district)">{{district}}</a>
+    </li>
+  </ul>
+</div>
+
+<div class="col-md-12" ui-view></div>

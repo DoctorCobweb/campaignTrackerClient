@@ -1,0 +1,14 @@
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+    Select person 
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    <li role="presentation" class="dropdown-header">Person</li>
+    <li ng-repeat="person in dataPeople">
+      <a ui-sref="dashboard.person.summary({person:dataToUrlPeople[person]})">{{person}}</a>
+    </li>
+  </ul>
+</div>
+
+<div class="col-md-12" ui-view></div>

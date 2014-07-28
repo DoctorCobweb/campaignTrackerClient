@@ -1,0 +1,45 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="row">
+  <div class="col-md-3">
+  <div class="pa-sidebar well well-small">
+    <ul class="nav nav-list">
+      <li class="nav-header">Overview</li>
+      <li ui-sref-active="active">
+        <!--<a ui-sref="dashboard.statewide">Statewide</a>-->
+        <a ui-sref="dashboard.statewide.summary">Statewide</a>
+      </li>
+      <li class="nav-header">Seats</li>
+      <li ui-sref-active="active">
+        <a ui-sref="dashboard.region">Upper House Region</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="dashboard.district">Lower House District</a>
+      </li>
+      <li class="nav-header">Human Resources</li>
+      <li ui-sref-active="active">
+        <a ui-sref="dashboard.person">Person</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="dashboard.neighbourhoodTeam">Neighbourhood Team</a>
+      </li>
+      <li class="nav-header">Statistics</li>
+      <li ui-sref-active="active">
+        <a ui-sref="dashboard.report">Report</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="dashboard.rawData">Raw Data</a>
+      </li>
+
+      <!--
+      <li ui-sref-active="active" ng-repeat="item in items">
+        <a ui-sref="dashboard.detail({detailItem:(item.endpoint)})">{{item.name}}</a>
+      </li>
+      -->
+    </ul>
+  </div>
+  </div>
+
+  <!-- Our unnamed main ui-view for this template -->
+  <div ui-view class="col-md-9"></div>
+</div>
