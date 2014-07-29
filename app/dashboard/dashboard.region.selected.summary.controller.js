@@ -2,15 +2,15 @@
 
 angular.module('campaignTrackerApp')
   .controller('DashboardRegionSelectedSummaryCtrl',
-            ['$scope','$http','$stateParams',
-    function ($scope,  $http,  $stateParams) {
+            ['$scope','$http','$stateParams', 'prettyUrl',
+    function ($scope,  $http,  $stateParams,   prettyUrl) {
       $scope.stats= {}; 
+      $scope.region = prettyUrl.urlToDataRegions[$stateParams.region];
 
       console.log('$stateParams');
       console.dir($stateParams);
-      console.log('sending off region: ' + $scope.selectedRegionDataForm);
   
-      $http.get('/api/dashboard/region/summary/' + $scope.selectedRegionDataForm)
+      $http.get('/api/dashboard/region/' + $scope.region + '/summary')
         .success(function (data) {
           $scope.stats = data;
           console.log('data from $http.get:');

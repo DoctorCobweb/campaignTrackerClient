@@ -26,6 +26,7 @@ angular.module('campaignTrackerApp')
         $scope.data = {};
         $scope.data.campaignDetails = {};
         $scope.data.activityDetails = {};
+
         $scope.data.activityDetails.activityStartTime= new Date();
         $scope.hstep = 1;
         $scope.mstep = 5;
@@ -34,8 +35,6 @@ angular.module('campaignTrackerApp')
           mstep: [1, 5, 10, 15, 25, 30]
         };
         $scope.ismeridian = true;
-
-        //$scope.data.activityDetails.activityStartTime = new Date(0,0,1,12,21);
 
         $scope.regions = populateForm.regions();
         $scope.data.campaignDetails.region = $scope.regions[0];
@@ -46,6 +45,7 @@ angular.module('campaignTrackerApp')
       };
 
 
+      //called when user tries to submit the form
       $scope.openModal = function (size) {
         var modalInstance = $modal.open({
           templateUrl: 'app/form/formModalContent.html',
@@ -61,13 +61,14 @@ angular.module('campaignTrackerApp')
         modalInstance.result.then(function (selectedItem) {
           $scope.selected = selectedItem;
           console.log('$scope.selected dummy is: ' + selectedItem);
-          //user has said details are correct. go onto submitting the form now
           $scope.submitForm();
         }, function () {
           console.log('Modal dismissed at: ' + new Date());
         });
       };
 
+
+      //called when user has said details are correct. go onto submitting the form now
       $scope.submitForm = function () {
         $scope.dataForm.$setPristine();
 
