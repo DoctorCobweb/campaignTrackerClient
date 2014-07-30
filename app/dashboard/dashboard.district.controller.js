@@ -1,8 +1,10 @@
 'use strict';
 
 angular.module('campaignTrackerApp')
-  .controller('DashboardDistrictCtrl', ['$scope', '$http', 'prettyUrl',
-    function ($scope, $http, prettyUrl) {
+  .controller('DashboardDistrictCtrl', 
+            ['$scope', '$http', 'prettyUrl',
+    function ($scope,   $http,   prettyUrl) {
+
       $scope.dataDistricts = prettyUrl.dataDistricts;
       $scope.dataToUrlDistricts = prettyUrl.dataToUrlDistricts;
 

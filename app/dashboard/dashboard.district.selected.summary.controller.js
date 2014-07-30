@@ -5,22 +5,10 @@ angular.module('campaignTrackerApp')
             ['$scope','$http','$stateParams', 'prettyUrl', '$location',
     function ($scope,  $http,  $stateParams,   prettyUrl,   $location) {
       $scope.stats= {}; 
+      $scope.district = prettyUrl.urlToDataDistricts[$location.path().split('/')[3]];
 
       console.log('$stateParams');
       console.dir($stateParams);
-
-      $scope.district = prettyUrl.urlToDataDistricts[$location.path().split('/')[3]];
-
-      /*
-      if (!$stateParams.district) {
-        console.log(0);
-        $scope.district = $location.path().split('/')[3];
-      } else {
-        console.log(1);
-        $scope.district = prettyUrl.urlToDataDistricts[$stateParams.district];
-      }
-      */
-
   
       $http.get('/api/dashboard/district/' + $scope.district + '/summary/')
         .success(function (data) {
