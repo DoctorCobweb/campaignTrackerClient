@@ -7,10 +7,13 @@ angular.module('campaignTrackerApp')
       $scope.dataRegions = prettyUrl.dataRegions;
       $scope.dataToUrlRegions = prettyUrl.dataToUrlRegions;
 
+      console.log('HELLLOOO');
+ 
+      console.log('$scope.regionUrlForm');
+      console.log($scope.regionUrlForm);
+
       $scope.setRegion = function (region) {
-        $scope.selectedRegionUrlForm = $scope.dataToUrlRegions[region];
-        $scope.selectedRegionDataForm = region;
-        console.log('$scope.selectedRegionUrlForm: ' + $scope.selectedRegionUrlForm);
-        console.log('$scope.selectedRegionDataForm: ' + $scope.selectedRegionDataForm);
+        $scope.regionUrlForm = $scope.dataToUrlRegions[region];
+        console.log('$scope.regionUrlForm: ' + $scope.regionUrlForm);
       };
   }]);

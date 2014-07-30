@@ -8,14 +8,22 @@ angular.module('campaignTrackerApp')
       console.log('$stateParams:');
       console.dir($stateParams);
   
-      //this will always be something. it will always be the region param we want
-      //$stateParams let's us down when user copies and pastes the url into new tab
-      //=>nothing will be on the $routeScope for region selected.
-      $scope.region = $location.path().split('/')[3];
-
       $scope.nextState = function (state) {
         console.log('going into nextState: ' + state);
-        $state.go('dashboard.region.selected.' + state,
-                  {region:$scope.region});
+       
+        // need to do this to support deep linking of app
+        // if user copies and pastes url into a new browser tab, then clicks from 
+        // summary to analysis (say) then regionUrlForm will be undefined.
+        /*
+        if (!$scope.regionUrlForm) {
+          $scope.regionUrlForm = $location.path().split('/')[3];
+        }
+        */
+
+        //must always reset the regionUrlForm to reflect url. handles deep linking
+        $scope.regionUrlForm = $location.path().split('/')[3];
+        console.log('and $scope.regionUrlForm: ' + $scope.regionUrlForm);
+        $state.go('dashboard.region.selected.' + state, 
+          {region:$scope.regionUrlForm});
       };
   }]);

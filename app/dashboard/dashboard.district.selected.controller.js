@@ -2,8 +2,8 @@
 
 angular.module('campaignTrackerApp')
   .controller('DashboardDistrictSelectedCtrl', 
-            ['$scope','$http','$stateParams', '$state',
-    function ($scope,  $http,  $stateParams,   $state) {
+            ['$scope','$http','$stateParams', '$state', '$location',
+    function ($scope,  $http,  $stateParams,   $state,   $location) {
       $scope.stats= {}; 
 
       console.log('$stateParams');
@@ -11,7 +11,17 @@ angular.module('campaignTrackerApp')
 
       $scope.nextState = function (state) {
         console.log('going into state: ' + state);
-        $state.go('dashboard.district.selected.' + state,
-                   {district:$scope.selectedDistrictUrlForm});
+
+        // need to do this to support deep linking of app
+        // if user copies and pastes url into a new browser tab, then clicks from
+        // summary to analysis (say) then districtUrlForm will be undefined.
+        /*
+        if (!$scope.districtUrlForm) {
+          $scope.districtUrlForm = $location.path().split('/')[3];
+        }
+        */
+        $scope.districtUrlForm = $location.path().split('/')[3];
+        console.log('and $scope.districtUrlForm: ' + $scope.districtUrlForm);
+        $state.go('dashboard.district.selected.'+state,{district:$scope.districtUrlForm});
       };
   }]);

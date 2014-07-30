@@ -7,11 +7,7 @@ angular.module('campaignTrackerApp')
       $scope.dataToUrlDistricts = prettyUrl.dataToUrlDistricts;
 
       $scope.setDistrict= function (district) {
-        $scope.selectedDistrictUrlForm = $scope.dataToUrlDistricts[district];
-        $scope.selectedDistrictDataForm = district;
-        console.log('$scope.selectedDistrictUrlForm: '
-                   + $scope.selectedDistrictUrlForm);
-        console.log('$scope.selectedDistrictDataForm: '
-                   + $scope.selectedDistrictDataForm);
+        $scope.districtUrlForm = $scope.dataToUrlDistricts[district];
+        console.log('$scope.districtUrlForm: ' + $scope.districtUrlForm);
       };
   }]);
