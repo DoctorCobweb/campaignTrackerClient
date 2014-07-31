@@ -16,6 +16,7 @@
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->
+    <link rel="stylesheet" href="bower_components/rickshaw/rickshaw.css">
     <link rel="stylesheet" href="app/app.css">
       <!-- injector:css -->
       <!-- endinjector -->
@@ -57,6 +58,9 @@
       <script src="bower_components/lodash/dist/lodash.compat.js"></script>
       <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
       <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+      <script src="bower_components/rickshaw/vendor/d3.min.js"></script>
+      <script src="bower_components/rickshaw/vendor/d3.layout.min.js"></script>
+      <script src="bower_components/rickshaw/rickshaw.min.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
 
@@ -98,6 +102,7 @@
           <script src="app/form/formModalInstance.controller.js"></script>
           <script src="app/main/main.controller.js"></script>
           <script src="app/main/main.js"></script>
+          <script src="app/rickshawChart/rickshawChart.directive.js"></script>
           <script src="components/auth/auth.service.js"></script>
           <script src="components/auth/user.service.js"></script>
           <script src="components/mongoose-error/mongoose-error.directive.js"></script>

@@ -13,7 +13,7 @@ angular.module('campaignTrackerApp')
       console.log('$stateParams');
       console.dir($stateParams);
   
-      $http.get('/api/dashboard/overview/statewide')
+      $http.get('/api/dashboard/statewide/summary')
         .success(function (data) {
           $scope.stats = data;
           console.log('data from $http.get:');
