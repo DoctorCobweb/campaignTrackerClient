@@ -9,19 +9,19 @@ angular.module('campaignTrackerApp')
       console.log('$stateParams');
       console.dir($stateParams);
 
-      //$http.get('data/sightings.json').success(function(result){
       $http.get('/api/dashboard/').success(function(result){
         $scope.sightings = result;
         console.log('result');
         console.dir(result);
 
-        $scope.renderer = 'line';
+        $scope.renderer = 'bar';
         $scope.sightingsByDate = _.chain(result)
           .countBy(function(sighting){return sighting.activity[0].activityDate})
           .pairs()
           .map(function(pair){
+            //console.log(pair[0]);
             return {
-              x: new Date(pair[0]).getTime()/1000,
+              x: (new Date(pair[0]).getTime())/1000,
               y: pair[1]
             };
           })
