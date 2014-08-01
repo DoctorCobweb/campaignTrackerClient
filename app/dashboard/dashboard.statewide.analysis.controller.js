@@ -9,35 +9,13 @@ angular.module('campaignTrackerApp')
       console.log('$stateParams');
       console.dir($stateParams);
 
-      $http.get('/api/dashboard/').success(function(result){
-        $scope.sightings = result;
-        console.log('result');
-        console.dir(result);
-
-        $scope.renderer = 'bar';
-        $scope.sightingsByDate = _.chain(result)
-          .countBy(function(sighting){return sighting.activity[0].activityDate})
-          .pairs()
-          .map(function(pair){
-            //console.log(pair[0]);
-            return {
-              x: (new Date(pair[0]).getTime())/1000,
-              y: pair[1]
-            };
-          })
-          .sortBy(function(dateCount){return dateCount.x;})
-          .value();
+      $http.get('/api/dashboard/statewide/analysis').success(function(result){
+        $scope.allSurveys = result.total;
+        $scope.surveysSplitByActivity = result.split;
  
-        console.log('$scope.sightingsByDate');
-        console.dir($scope.sightingsByDate);
+        console.log('$scope.allSurveys');
+        console.dir($scope.allSurveys);
+        console.log('$scope.surveysSplitByActivity');
+        console.log($scope.surveysSplitByActivity);
       });
-  
-      /*
-      $http.get('/api/dashboard/statewide/analysis')
-        .success(function (data) {
-          $scope.stats = data;
-          console.log('data from $http.get:');
-          console.dir(data);
-        });
-      */
   }]);

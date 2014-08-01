@@ -1,19 +1,28 @@
 <div class="col-md-12">
   <h3>Statewide Analysis</h3>
   <p>TODO: implement useful formulas for metrics (ave, median, acceleration, momentum)</p>
-  <p>TODO: implement graphs</p>
   <br />
   <br />
-  <h5>GRAPH 1: All activities over time</h5>
+
+  <h3>GRAPH 1: Total activities over time</h3>
   <br />
   <br />
-  <rickshaw-chart 
-    renderer="renderer"
+  <statewide-total-activities 
     color="orange"
-    data="sightingsByDate"
-  ></rickshaw-chart>
+    data="allSurveys"
+  ></statewide-total-activities>
   <br />
-
-  <h3>MORE GRAOHS</h3>
-
+  <br />
+  <h3>GRAPH 2: Individual activity totals</h3>
+  <br />
+  <br />
+  <statewide-split-activities 
+    color="orange"
+    data="surveysSplitByActivity"
+  ></statewide-split-activities>
+  <br />
+  <br />
+  <h3>TODO: MORE GRAPHS</h3>
+  <br />
+  <br />
 </div>
