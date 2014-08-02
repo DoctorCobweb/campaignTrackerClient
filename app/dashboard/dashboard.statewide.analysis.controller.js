@@ -5,17 +5,18 @@ angular.module('campaignTrackerApp')
             ['$scope','$http','$stateParams',
     function ($scope,  $http,  $stateParams) {
       $scope.stats= {}; 
+      $scope.bogus = "bogus vlaue";
+      $scope.yadda = "YADDA";
 
       console.log('$stateParams');
       console.dir($stateParams);
 
+      console.log('CONTROLLER SCOPE');
+      console.dir($scope);
+
       $http.get('/api/dashboard/statewide/analysis').success(function(result){
         $scope.allSurveys = result.total;
-        $scope.surveysSplitByActivity = result.split;
- 
-        console.log('$scope.allSurveys');
-        console.dir($scope.allSurveys);
-        console.log('$scope.surveysSplitByActivity');
-        console.log($scope.surveysSplitByActivity);
+        $scope.surveysSplitByActivity = result.activityTotals;
+        $scope.surveysSplitByActivityTimeline = result.activityTimelineTotals;
       });
   }]);

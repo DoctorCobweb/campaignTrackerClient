@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('campaignTrackerApp')
-  .directive('statewideSplitActivities', function () {
+  .directive('statewideSplitActivitiesTimeline', function () {
     return {
       scope: {
         data: '=datarrr',
@@ -11,7 +11,7 @@ angular.module('campaignTrackerApp')
       template: '<div></div>',
       restrict: 'E',
       link: function (scope, element, attrs) {
-        element.text('this is the statewideSplitActivities directive');
+        element.text('this is the statewideSplitActivitiesTimeline directive');
 
         scope.$watchCollection('[data, renderer]', function(newVal, oldVal){
           if(!newVal[0]){
@@ -22,12 +22,18 @@ angular.module('campaignTrackerApp')
           console.dir(scope);
           element[0].innerHTML ='';
 
+          var palette = new Rickshaw.Color.Palette();
+
+          _.forEach(scope.data, function (item) {
+            item.color = palette.color();
+          });
+          console.dir(scope.data);
+
           var graph = new Rickshaw.Graph({
             element: element[0],
             width: 750,
             height: 450,
-            series: [{data: scope.data, color: attrs.color}],
-            renderer: 'bar'
+            series: scope.data
           });
 
           var format = function (n) {
