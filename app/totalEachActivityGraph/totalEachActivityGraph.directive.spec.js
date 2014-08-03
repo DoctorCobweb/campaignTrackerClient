@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Directive: statewideSplitActivitiesTimeline', function () {
+describe('Directive: totalEachActivityGraph', function () {
 
   // load the directive's module
   beforeEach(module('campaignTrackerApp'));
@@ -13,8 +13,8 @@ describe('Directive: statewideSplitActivitiesTimeline', function () {
   }));
 
   it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<statewide-split-activities-timeline></statewide-split-activities-timeline>');
+    element = angular.element('<total-each-activity-graph></total-each-activity-graph>');
     element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the statewideSplitActivitiesTimeline directive');
+    expect(element.text()).toBe('this is the totalEachActivityGraph directive');
   }));
 });

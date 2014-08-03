@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('campaignTrackerApp')
-  .directive('statewideSplitActivities', function () {
+  .directive('totalEachActivityGraph', function () {
     return {
       scope: {
         data: '=datarrr',
@@ -11,7 +11,7 @@ angular.module('campaignTrackerApp')
       template: '<div></div>',
       restrict: 'E',
       link: function (scope, element, attrs) {
-        element.text('this is the statewideSplitActivities directive');
+        element.text('this is the totalEachActivityGraph directive');
 
         scope.$watchCollection('[data, renderer]', function(newVal, oldVal){
           if(!newVal[0]){
