@@ -18,5 +18,6 @@ angular.module('campaignTrackerApp')
         $scope.allSurveys = result.total;
         $scope.surveysSplitByActivity = result.activityTotals;
         $scope.surveysSplitByActivityTimeline = result.activityTimelineTotals;
+        $scope.activityConversions = result.activityConversions;
       });
   }]);

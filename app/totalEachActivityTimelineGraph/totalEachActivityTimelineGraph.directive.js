@@ -16,20 +16,20 @@ angular.module('campaignTrackerApp')
             return;
           }
 
-          console.log('DIRECTIVE scope');
+          console.log('TIMELINE DIRECTIVE scope');
           console.dir(scope);
-          console.log('angular.element(\'#total_each_activity_timeline_graph\')');
-          console.log(angular.element('#total_each_activity_timeline_graph'));
-          console.log('element');
-          console.log(element);
-          console.log(angular.element("#total_each_activity_timeline_y_axis")[0]);
+          //console.log('angular.element(\'#total_each_activity_timeline_graph\')');
+          //console.log(angular.element('#total_each_activity_timeline_graph'));
+          //console.log('element');
+          //console.log(element);
+          //console.log(angular.element("#total_each_activity_timeline_y_axis")[0]);
 
           var palette = new Rickshaw.Color.Palette();
 
           _.forEach(scope.data, function (item) {
             item.color = palette.color();
           });
-          console.dir(scope.data);
+          //console.dir(scope.data);
 
 
           var graph = new Rickshaw.Graph({

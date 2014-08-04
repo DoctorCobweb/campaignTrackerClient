@@ -17,7 +17,7 @@ angular.module('campaignTrackerApp')
             return;
           }
 
-          console.log('DIRECTIVE scope');
+          console.log('TOTAL EACH DIRECTIVE scope');
           console.dir(scope);
 
           var graph = new Rickshaw.Graph({
