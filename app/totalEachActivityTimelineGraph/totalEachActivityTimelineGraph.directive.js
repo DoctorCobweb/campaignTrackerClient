@@ -7,12 +7,9 @@ angular.module('campaignTrackerApp')
         data: '=datarrr',
         roogie: '=boogie'
       },
-      transclude: true,
-      //template: '<div></div>',
       templateUrl: 'app/totalEachActivityTimelineGraph/totalEachActivityTimelineGraph.html',
       restrict: 'E',
       link: function (scope, element, attrs) {
-        //element.text('this is the totalEachActivityTimelineGraph directive');
 
         scope.$watchCollection('[data, renderer]', function(newVal, oldVal){
           if(!newVal[0]){
@@ -21,14 +18,11 @@ angular.module('campaignTrackerApp')
 
           console.log('DIRECTIVE scope');
           console.dir(scope);
-          //console.log('angular.element');
-          //console.log(angular.element);
-          console.log('angular.element(\'#graph\').html()');
-          console.log(angular.element('#graph').html());
-          //element[0].innerHTML ='';
+          console.log('angular.element(\'#total_each_activity_timeline_graph\')');
+          console.log(angular.element('#total_each_activity_timeline_graph'));
           console.log('element');
           console.log(element);
-          console.log(angular.element("#y_axis")[0]);
+          console.log(angular.element("#total_each_activity_timeline_y_axis")[0]);
 
           var palette = new Rickshaw.Color.Palette();
 
@@ -39,7 +33,7 @@ angular.module('campaignTrackerApp')
 
 
           var graph = new Rickshaw.Graph({
-            element: angular.element("#graph")[0],
+            element: angular.element("#total_each_activity_timeline_graph")[0],
             width: 750,
             height: 450,
             series: scope.data,
@@ -85,7 +79,7 @@ angular.module('campaignTrackerApp')
           var yAxis = new Rickshaw.Graph.Axis.Y({
             graph: graph,
             orientation: 'left',
-            element: angular.element("#y_axis")[0]
+            element: angular.element("#total_each_activity_timeline_y_axis")[0]
           });
           yAxis.render();
 
@@ -94,7 +88,7 @@ angular.module('campaignTrackerApp')
 
           var legend = new Rickshaw.Graph.Legend({
           	graph: graph,
-          	element: angular.element('#legend')[0]
+          	element: angular.element("#total_each_activity_timeline_legend")[0]
           });
           
           var shelving = new Rickshaw.Graph.Behavior.Series.Toggle({
