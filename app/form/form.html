@@ -8,6 +8,9 @@
     <div class="section">
        <h4>Campaign Details</h4>
 
+       <h5>Your name:</h5>
+       <input class="form-control fields" ng-model="data.campaignDetails.dataEntryPerson" placeholder="Person entering the data" required>
+
        <h5>Upper house region:</h5>
          <select ng-model="data.campaignDetails.region" class="fields" required>
            <option ng-repeat="region in regions" value="{{region}}">{{region}}</option>
@@ -18,12 +21,12 @@
            <option ng-repeat="district in districts[data.campaignDetails.region]" value="{{district}}">{{district}}</option>
          </select><br/>
     
-        <h5>Your name:</h5>
-        <select ng-model="data.campaignDetails.personName" class="fields" required>
+        <h5>Activity organizer person (name of person who ran the activity):</h5>
+        <select ng-model="data.campaignDetails.organizerPerson" class="fields" required>
           <option ng-repeat="person in people[data.campaignDetails.region]" value="{{person}}">{{person}}</option>
           <option value="Other">Other</option>
         </select><br/>
-        <textarea ng-show="data.campaignDetails.personName === 'Other'" class="form-control fields" ng-model="data.campaignDetails.personNameOther" rows="1" placeholder="Enter your name." ></textarea>
+        <textarea ng-show="data.campaignDetails.organizerPerson === 'Other'" class="form-control fields" ng-model="data.campaignDetails.organizerPersonOther" rows="1" placeholder="Enter your name." ></textarea>
 
 
         <h5>Neighbourhood team:</h5>
@@ -47,22 +50,9 @@
           <datepicker ng-model="data.activityDetails.activityDate" min-date="minDate" show-weeks="true" class="well well-sm"></datepicker>
         </div>
     
-        <!--
-        <h5>Date of activity:</h5>
-        <input type="text" ng-model="data.activityDetails.activityDate" class="activity-date fields" required jqdatepicker /><br/>
-        -->
 
         <h5>Start time of activity:</h5>
-        <timepicker ng-model="data.activityDetails.activityStartTime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
-    
-        <!--
-        <pre class="alert alert-info">Time is: {{data.activityDetails.activityStartTime | date:'shortTime' }}</pre>
-        -->
-
-        <!--
-        <h5>Start time of activity (e.g. 02:30 pm):</h5>
-        <input type="time" class="form-control fields" ng-model="data.activityDetails.activityStartTime" required>
-        -->
+        <timepicker ng-model="data.activityDetails.activityStartTime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian" required></timepicker>
 
 
 

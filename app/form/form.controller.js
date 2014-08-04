@@ -10,7 +10,7 @@ angular.module('campaignTrackerApp')
         var d = new Date();
         d.setHours( 14 );
         d.setMinutes( 0 );
-        $scope.data.activityDetails.activityStartTime= d;
+        $scope.data.activityDetails.activityStartTime = d;
       };
 
   
@@ -27,7 +27,7 @@ angular.module('campaignTrackerApp')
         $scope.data.campaignDetails = {};
         $scope.data.activityDetails = {};
 
-        $scope.data.activityDetails.activityStartTime= new Date();
+        //$scope.data.activityDetails.activityStartTime= new Date();
         $scope.hstep = 1;
         $scope.mstep = 5;
         $scope.options = {

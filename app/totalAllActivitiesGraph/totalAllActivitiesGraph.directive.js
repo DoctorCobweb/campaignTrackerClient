@@ -6,21 +6,18 @@ angular.module('campaignTrackerApp')
       scope: {
         data: '='
       },
-      template: '<div></div>',
+      templateUrl: 'app/totalAllActivitiesGraph/totalAllActivitiesGraph.html',
       restrict: 'E',
       link: function (scope, element, attrs) {
-        element.text('this is the totalAllActivitiesGraph directive');
 
         scope.$watchCollection('[data, renderer]', function(newVal, oldVal){
           if(!newVal[0]){
             return;
           }
 
-          //console.log(element);
-          element[0].innerHTML ='';
 
           var graph = new Rickshaw.Graph({
-            element: element[0],
+            element: angular.element("#total_all_activities_graph")[0],
             width: 750,
             height: 450,
             series: [{data: scope.data, color: attrs.color}],
@@ -33,7 +30,9 @@ angular.module('campaignTrackerApp')
           xAxis.render();
 
           var yAxis = new Rickshaw.Graph.Axis.Y({
-            graph: graph
+            graph: graph,
+            orientation: 'left',
+            element: angular.element('#total_all_activities_y_axis')[0]
           });
           yAxis.render();
 

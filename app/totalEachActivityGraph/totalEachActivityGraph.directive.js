@@ -8,10 +8,9 @@ angular.module('campaignTrackerApp')
         roogie: '=boogie'
       },
       transclude: true,
-      template: '<div></div>',
+      templateUrl: 'app/totalEachActivityGraph/totalEachActivityGraph.html',
       restrict: 'E',
       link: function (scope, element, attrs) {
-        element.text('this is the totalEachActivityGraph directive');
 
         scope.$watchCollection('[data, renderer]', function(newVal, oldVal){
           if(!newVal[0]){
@@ -20,10 +19,9 @@ angular.module('campaignTrackerApp')
 
           console.log('DIRECTIVE scope');
           console.dir(scope);
-          element[0].innerHTML ='';
 
           var graph = new Rickshaw.Graph({
-            element: element[0],
+            element: angular.element("#total_each_activity_graph")[0],
             width: 750,
             height: 450,
             series: [{data: scope.data, color: attrs.color}],
@@ -67,7 +65,9 @@ angular.module('campaignTrackerApp')
           xAxis.render();
 
           var yAxis = new Rickshaw.Graph.Axis.Y({
-            graph: graph
+            graph: graph,
+            orientation: 'left',
+            element: angular.element('#total_each_activity_y_axis')[0]
           });
           yAxis.render();
 

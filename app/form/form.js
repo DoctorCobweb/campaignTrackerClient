@@ -115,9 +115,8 @@ angular.module('campaignTrackerApp')
         "Yuroke"
       ],
       "Western Victoria" : [
-        "Ballarat East",
-        "Ballarat West",
         "Bellarine",
+        "Buninyong",
         "Geelong",
         "Lara",
         "Lowan",
@@ -125,7 +124,8 @@ angular.module('campaignTrackerApp')
         "Polwarth",
         "Ripon",
         "South Barwon",
-        "South-West Coast"
+        "South-West Coast",
+        "Wendoree"
       ]
     };
 
