@@ -11,11 +11,12 @@ angular.module('campaignTrackerApp')
       console.log('$stateParams');
       console.dir($stateParams);
   
-      //TODO: make analysis endpoint
-      $http.get('/api/dashboard/district/' + $scope.district + '/summary')
-        .success(function (data) {
-          $scope.stats = data;
-          console.log('data from $http.get:');
-          console.dir(data);
+      $http.get('/api/dashboard/district/' + $scope.district + '/analysis')
+        .success(function (result) {
+          $scope.allSurveys = result.total;
+          $scope.surveysSplitByActivity = result.activityTotals;
+          $scope.surveysSplitByActivityTimeline = result.activityTimelineTotals;
+          $scope.activityConversions = result.activityConversions;
+
         });
   }]);

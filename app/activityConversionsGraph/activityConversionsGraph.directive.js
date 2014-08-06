@@ -40,9 +40,9 @@ angular.module('campaignTrackerApp')
           
           //this is the directive data format we will add to
           var dData = {};
-          dData.totalAttemptsPerc = [];
-          dData.totalAnswersPerc  = [];
-          dData.totalMIsPerc      = [];
+          //dData.total_attempts_percent = [];
+          dData.answers_percent  = [];
+          dData.meaningful_interactions_percent      = [];
       
           _.forEach(availActivities, function(act, index) {
             var x = index + 1; 
@@ -52,18 +52,20 @@ angular.module('campaignTrackerApp')
               return details.activity === act;
             });
 
-            var normalizedAttempts = 100.0 - (aStats.totAnsweredPercent + aStats.totMIPercent);
-            console.log('normalizedAttempts');
-            console.log(normalizedAttempts);
+            //var normalizedAttempts = 100.0 
+            //  - (aStats.totAnsweredPercent + aStats.totMIPercent);
+            //console.log('normalizedAttempts');
+            //console.log(normalizedAttempts);
             
-            dData.totalAttemptsPerc.push({x:x, y:normalizedAttempts});
-            dData.totalAnswersPerc.push({x:x, y:aStats.totAnsweredPercent});
-            dData.totalMIsPerc.push({x:x, y:aStats.totMIPercent});
+            //dData.total_attempts_percent.push({x:x, y:normalizedAttempts});
+            dData.answers_percent.push({x:x, y:aStats.totAnsweredPercent});
+            dData.meaningful_interactions_percent.push({x:x, y:aStats.totMIPercent});
           }); 
 
           console.log('dData');
           console.log(dData);
 
+          //desired format
           //[{name: , data: },{},{}]
           var dataSeries = [];
           _.forEach(dData, function (actVals, key) {

@@ -1,0 +1,18 @@
+<div class="modal-header">
+  <h3 class="modal-title">#{{index + 1}}: Survey Details</h3>
+</div>
+<div class="modal-body">
+  <h3>Campaign Details</h3>
+  <ul>
+    <li ng-repeat="pair in campaignPairs">{{pair[0]}}: {{pair[1]}}</li>
+  </ul>
+  <h3>Activity Details</h3>
+  <ul>
+    <li ng-repeat="pair in activityPairs">{{pair[0]}}: {{pair[1]}}</li>
+  </ul>
+</div>
+
+<div class="modal-footer">
+  <button class="btn btn-warning" ng-click="close()">Close</button>
+</div>
+

@@ -14,11 +14,11 @@ angular.module('campaignTrackerApp')
       console.log('$scope.region');
       console.dir($scope.region);
   
-      //TODO: make this endpoint
-      $http.get('/api/dashboard/region/' + $scope.region + '/summary')
-        .success(function (data) {
-          $scope.stats = data;
-          console.log('data from $http.get:');
-          console.dir(data);
+      $http.get('/api/dashboard/region/' + $scope.region + '/analysis')
+        .success(function (result) {
+          $scope.allSurveys = result.total;
+          $scope.surveysSplitByActivity = result.activityTotals;
+          $scope.surveysSplitByActivityTimeline = result.activityTimelineTotals;
+          $scope.activityConversions = result.activityConversions;
         });
   }]);

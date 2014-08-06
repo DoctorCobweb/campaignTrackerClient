@@ -24,9 +24,7 @@
         <h5>Activity organizer person (name of person who ran the activity):</h5>
         <select ng-model="data.campaignDetails.organizerPerson" class="fields" required>
           <option ng-repeat="person in people[data.campaignDetails.region]" value="{{person}}">{{person}}</option>
-          <option value="Other">Other</option>
         </select><br/>
-        <textarea ng-show="data.campaignDetails.organizerPerson === 'Other'" class="form-control fields" ng-model="data.campaignDetails.organizerPersonOther" rows="1" placeholder="Enter your name." ></textarea>
 
 
         <h5>Neighbourhood team:</h5>
@@ -59,66 +57,66 @@
         <!-- VARIABLE CONTENT: depends on activityType selected -->
         <div ng-show="data.activityDetails.activityType === 'Door Knocking'">
           <h5>Total number of door knocks:</h5>
-          <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.attempts" placeholder="Enter number of attempts made." ng-required="data.activityDetails.activityType === 'Door Knocking'">
+          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.attempts" placeholder="Enter number of attempts made." ng-required="data.activityDetails.activityType === 'Door Knocking'">
   
           <h5>Total doors answered:</h5>
-          <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.answered" placeholder="Enter the total number of doors actually answered." ng-required="data.activityDetails.activityType === 'Door Knocking'">
+          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.answered" placeholder="Enter the total number of doors actually answered." ng-required="data.activityDetails.activityType === 'Door Knocking'">
   
           <h5>Meaningful interactions:</h5>
-          <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.meaningfulInteractions" placeholder="Enter number of meaningful interactions you had." ng-required="data.activityDetails.activityType === 'Door Knocking'">
+          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.meaningfulInteractions" placeholder="Enter number of meaningful interactions you had." ng-required="data.activityDetails.activityType === 'Door Knocking'">
 
           <h5>Number of people who attended door knock:</h5>
-          <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.attendance" placeholder="Enter attendance" ng-required="data.activityDetails.activityType === 'Door Knocking'">
+          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.attendance" placeholder="Enter attendance" ng-required="data.activityDetails.activityType === 'Door Knocking'">
   
           <h5>Total volunteer hours for activity:</h5>
-          <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.volTotalWorkHrs" placeholder="A group of vols only counts as ONE person because they're doing the same work." ng-required="data.activityDetails.activityType === 'Door Knocking'">
+          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.volTotalWorkHrs" placeholder="A group of vols only counts as ONE person because they're doing the same work." ng-required="data.activityDetails.activityType === 'Door Knocking'">
   
           <h5>Total hours spent training volunteers:</h5>
-          <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.volTotalTrainingHrs" placeholder="Enter total in hours, e.g 4.5" ng-required="data.activityDetails.activityType === 'Door Knocking'">
+          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.volTotalTrainingHrs" placeholder="Enter total in hours, e.g 4.5" ng-required="data.activityDetails.activityType === 'Door Knocking'">
         </div>
 
 
 
         <div ng-show="data.activityDetails.activityType === 'Phone Banking'">
           <h5>Total number of phone calls made:</h5>
-          <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.attempts" placeholder="Enter number of phone calls made." ng-required="data.activityDetails.activityType === 'Phone Banking'">
+          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.attempts" placeholder="Enter number of phone calls made." ng-required="data.activityDetails.activityType === 'Phone Banking'">
   
           <h5>Total answered:</h5>
-          <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.answered" placeholder="Enter number of actual answers you got." ng-required="data.activityDetails.activityType === 'Phone Banking'">
+          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.answered" placeholder="Enter number of actual answers you got." ng-required="data.activityDetails.activityType === 'Phone Banking'">
   
           <h5>Meaningful interactions:</h5>
-          <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.meaningfulInteractions" placeholder="Enter number of meaningful interactions you had." ng-required="data.activityDetails.activityType === 'Phone Banking'">
+          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.meaningfulInteractions" placeholder="Enter number of meaningful interactions you had." ng-required="data.activityDetails.activityType === 'Phone Banking'">
 
           <h5>Number of people who attended phone banking:</h5>
-          <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.attendance" placeholder="Enter attendance" ng-required="data.activityDetails.activityType === 'Phone Banking'">
+          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.attendance" placeholder="Enter attendance" ng-required="data.activityDetails.activityType === 'Phone Banking'">
   
           <h5>Total volunteer hours for activity:</h5>
-          <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.volTotalWorkHrs" placeholder="A group of vols only counts as ONE person because they're doing the same work." ng-required="data.activityDetails.activityType === 'Phone Banking'">
+          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.volTotalWorkHrs" placeholder="A group of vols only counts as ONE person because they're doing the same work." ng-required="data.activityDetails.activityType === 'Phone Banking'">
   
           <h5>Total hours spent training volunteers:</h5>
-          <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.volTotalTrainingHrs" placeholder="Enter total in hours, e.g 4.5" ng-required="data.activityDetails.activityType === 'Phone Banking'">
+          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.volTotalTrainingHrs" placeholder="Enter total in hours, e.g 4.5" ng-required="data.activityDetails.activityType === 'Phone Banking'">
         </div>
 
 
 
         <div ng-show="data.activityDetails.activityType === 'Volunteer Recruitment Phone Calling'">
           <h5>Total number of phone calls made:</h5>
-          <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.attempts" placeholder="Enter number of phone calls made." ng-required="data.activityDetails.activityType === 'Volunteer Recruitment Phone Calling'">
+          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.attempts" placeholder="Enter number of phone calls made." ng-required="data.activityDetails.activityType === 'Volunteer Recruitment Phone Calling'">
   
           <h5>Total answered:</h5>
-          <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.answered" placeholder="Enter number of actual answers you got." ng-required="data.activityDetails.activityType === 'Volunteer Recruitment Phone Calling'">
+          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.answered" placeholder="Enter number of actual answers you got." ng-required="data.activityDetails.activityType === 'Volunteer Recruitment Phone Calling'">
   
           <h5>Meaningful interactions:</h5>
-          <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.meaningfulInteractions" placeholder="Enter number of meaningful interactions you had." ng-required="data.activityDetails.activityType === 'Volunteer Recruitment Phone Calling'">
+          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.meaningfulInteractions" placeholder="Enter number of meaningful interactions you had." ng-required="data.activityDetails.activityType === 'Volunteer Recruitment Phone Calling'">
 
           <h5>Number of people who attended volunteer recruitment phone calling:</h5>
-          <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.attendance" placeholder="Enter attendance" ng-required="data.activityDetails.activityType === 'Volunteer Recruitment Phone Calling'">
+          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.attendance" placeholder="Enter attendance" ng-required="data.activityDetails.activityType === 'Volunteer Recruitment Phone Calling'">
   
           <h5>Total volunteer hours for activity:</h5>
-          <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.volTotalWorkHrs" placeholder="A group of vols only counts as ONE person because they're doing the same work." ng-required="data.activityDetails.activityType === 'Volunteer Recruitment Phone Calling'">
+          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.volTotalWorkHrs" placeholder="A group of vols only counts as ONE person because they're doing the same work." ng-required="data.activityDetails.activityType === 'Volunteer Recruitment Phone Calling'">
   
           <h5>Total hours spent training volunteers:</h5>
-          <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.volTotalTrainingHrs" placeholder="Enter total in hours, e.g 4.5" ng-required="data.activityDetails.activityType === 'Volunteer Recruitment Phone Calling'">
+          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.volTotalTrainingHrs" placeholder="Enter total in hours, e.g 4.5" ng-required="data.activityDetails.activityType === 'Volunteer Recruitment Phone Calling'">
   
           <h5>Total volunteer hours committed:</h5>
           <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.volTotalHrsCommitted" placeholder="Total hrs the new vols have commited to. For example, 3 new vols agree to attend 4hr event: 12hrs" ng-required="data.activityDetails.activityType === 'Volunteer Recruitment Phone Calling'">
@@ -129,23 +127,23 @@
 
         <div ng-show="data.activityDetails.activityType === 'One On One'">
           <h5>Number of one on one conversations had:</h5>
-          <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.attempts" placeholder="Enter number of one on one coversations." ng-required="data.activityDetails.activityType === 'One On One'">
+          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.attempts" placeholder="Enter number of one on one coversations." ng-required="data.activityDetails.activityType === 'One On One'">
 
           <h5>Number of one on one meaningful interactions had:</h5>
-          <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.meaningfulInteractions" placeholder="Enter number of one on one meaningful interactions." ng-required="data.activityDetails.activityType === 'One On One'">
+          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.meaningfulInteractions" placeholder="Enter number of one on one meaningful interactions." ng-required="data.activityDetails.activityType === 'One On One'">
   
           <h5>Comment:</h5>
-          <input type="text" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.comment" placeholder="Please write a comment" ng-required="data.activityDetails.activityType === 'One On One'">
+          <input type="text" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.comment" placeholder="Please write a comment" ng-required="data.activityDetails.activityType === 'One On One'">
         </div>
 
 
 
         <div ng-show="data.activityDetails.activityType === 'Neighbourhood Team Meeting'">
           <h5>Number of people who attended meeting:</h5>
-          <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.attendance" placeholder="Enter attendance" ng-required="data.activityDetails.activityType === 'Neighbourhood Team Meeting'">
+          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.attendance" placeholder="Enter attendance" ng-required="data.activityDetails.activityType === 'Neighbourhood Team Meeting'">
   
           <h5>Comment:</h5>
-          <input type="text" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.comment" placeholder="Please write a comment" ng-required="data.activityDetails.activityType === 'Neighbourhood Team Meeting'">
+          <input type="text" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.comment" placeholder="Please write a comment" ng-required="data.activityDetails.activityType === 'Neighbourhood Team Meeting'">
         </div>
 
 
@@ -153,39 +151,39 @@
 
         <div ng-show="data.activityDetails.activityType === 'Volunteer House Gathering'">
           <h5>Number of people who attended gathering:</h5>
-          <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.attendance" placeholder="Enter attendance" ng-required="data.activityDetails.activityType === 'Volunteer House Gathering'">
+          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.attendance" placeholder="Enter attendance" ng-required="data.activityDetails.activityType === 'Volunteer House Gathering'">
 
           <h5>Total volunteer hours committed:</h5>
-          <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.volTotalHrsCommitted" placeholder="Total hrs the new vols have commited to. For example, 3 new vols agree to attend 4hr event: 12hrs" ng-required="data.activityDetails.activityType === 'Volunteer House Gathering'">
+          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.volTotalHrsCommitted" placeholder="Total hrs the new vols have commited to. For example, 3 new vols agree to attend 4hr event: 12hrs" ng-required="data.activityDetails.activityType === 'Volunteer House Gathering'">
 
           <h5>Comment:</h5>
-          <input type="text" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.comment" placeholder="Please write a comment" ng-required="data.activityDetails.activityType === 'Volunteer House Gathering'">
+          <input type="text" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.comment" placeholder="Please write a comment" ng-required="data.activityDetails.activityType === 'Volunteer House Gathering'">
         </div>
 
 
 
         <div ng-show="data.activityDetails.activityType === 'Stall'">
           <h5>Number of conversations had at stall:</h5>
-          <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.attempts" placeholder="Enter number of one on one coversations." ng-required="data.activityDetails.activityType === 'Stall'">
+          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.attempts" placeholder="Enter number of one on one coversations." ng-required="data.activityDetails.activityType === 'Stall'">
 
           <h5>Meaningful interactions:</h5>
-          <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.meaningfulInteractions" placeholder="Enter number of meaningful interactions you had at the stall" ng-required="data.activityDetails.activityType === 'Stall'">
+          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.meaningfulInteractions" placeholder="Enter number of meaningful interactions you had at the stall" ng-required="data.activityDetails.activityType === 'Stall'">
 
           <h5>Number of people who were running the stall:</h5>
-          <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.attendance" placeholder="Enter attendance" ng-required="data.activityDetails.activityType === 'Stall'">
+          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.attendance" placeholder="Enter attendance" ng-required="data.activityDetails.activityType === 'Stall'">
   
           <h5>Comment:</h5>
-          <input type="text" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.comment" placeholder="Please write a comment" ng-required="data.activityDetails.activityType === 'Stall'">
+          <input type="text" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.comment" placeholder="Please write a comment" ng-required="data.activityDetails.activityType === 'Stall'">
         </div>
 
 
 
         <div ng-show="data.activityDetails.activityType === 'Voter House Meeting'">
           <h5>Number of people who attended meeting:</h5>
-          <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.attendance" placeholder="Enter attendance" ng-required="data.activityDetails.activityType === 'Voter House Meeting'">
+          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.attendance" placeholder="Enter attendance" ng-required="data.activityDetails.activityType === 'Voter House Meeting'">
   
           <h5>Comment:</h5>
-          <input type="text" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.comment" placeholder="Please write a comment" ng-required="data.activityDetails.activityType === 'Voter House Meeting'">
+          <input type="text" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.comment" placeholder="Please write a comment" ng-required="data.activityDetails.activityType === 'Voter House Meeting'">
         </div>
 
 
@@ -193,20 +191,18 @@
 
         <div ng-show="data.activityDetails.activityType === 'Training Session'">
           <h5>Number of people who attended training session:</h5>
-          <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.attendance" placeholder="Enter attendance" ng-required="data.activityDetails.activityType === 'Training Session'">
+          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.attendance" placeholder="Enter attendance" ng-required="data.activityDetails.activityType === 'Training Session'">
 
           <h5>Total hours spent training volunteers:</h5>
-          <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.volTotalTrainingHrs" placeholder="Enter total in hours, e.g 4.5" ng-required="data.activityDetails.activityType === 'Training Session'">
+          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.volTotalTrainingHrs" placeholder="Enter total in hours, e.g 4.5" ng-required="data.activityDetails.activityType === 'Training Session'">
   
           <h5>Comment:</h5>
-          <input type="text" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.comment" placeholder="Please write a comment" ng-required="data.activityDetails.activityType === 'Training Session'">
+          <input type="text" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.comment" placeholder="Please write a comment" ng-required="data.activityDetails.activityType === 'Training Session'">
         </div>
 
 
     </div>
-    <!--
-    <button class="btn btn-primary fields" ng-click="submitForm(data)" ng-disabled="dataForm.$invalid === true" >SUBMIT</button>
-    -->
+
     <button class="btn btn-primary fields" ng-click="openModal('lg')" ng-disabled="dataForm.$invalid === true" >SUBMIT</button>
 
   </form>
