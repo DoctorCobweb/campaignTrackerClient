@@ -84,6 +84,8 @@ angular.module('campaignTrackerApp')
             item.color = palette.color();
           });
           
+          console.log('angular.element');
+          console.log(angular.element);
 
           var graph = new Rickshaw.Graph({
             element: angular.element("#activity_conversions_graph")[0],
