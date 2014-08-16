@@ -17,6 +17,7 @@ angular.module('campaignTrackerApp')
         .then( function() {
           // Account created, redirect to home
           $location.path('/');
+          //$location.path('/form');
         })
         .catch( function(err) {
           err = err.data;

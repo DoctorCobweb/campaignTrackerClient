@@ -10,17 +10,11 @@
       <a href="/" class="navbar-brand">Campaign Tracker</a>
     </div>
     <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
+
       <ul class="nav navbar-nav">
-        <li ui-sref-active="active"><a ui-sref="form">Form</a></li>
-        <li ui-sref-active="active"><a ui-sref="dashboard.welcome">Dashboard</a></li>
-        <!--<li ng-class="{active: $state.includes('dashboard')}"><a ui-sref="dashboard.list">Dashboard</a></li>-->
-
-
-        <!-- <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">-->
-          <!-- <a ui-sref="{{item.link}}">{{item.title}}</a> -->
-        <!--</li>-->
+	      <li ng-show="isLoggedIn()" ng-class="{active: isActive('/form')}"><a href="/form">Form</a></li>
+        <li ui-sref-active="active" ng-show="isAdmin()"><a ui-sref="dashboard.welcome">Dashboard</a></li>
         <li ng-show="isAdmin()" ng-class="{active: isActive('/admin')}"><a href="/admin">Admin</a></li>
-        <li ng-show="isLoggedIn()" ><a href="/form">Form</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">

@@ -18,7 +18,6 @@ angular.module('campaignTrackerApp')
           console.log('ACTIVITY CONVERSIONS DIRECTIVE scope');
           console.dir(scope);
 
-
           //must munge scope.data into rickshaw format
           var relevantActivities = [
             'Door Knocking',
@@ -41,8 +40,8 @@ angular.module('campaignTrackerApp')
           //this is the directive data format we will add to
           var dData = {};
           //dData.total_attempts_percent = [];
-          dData.answers_percent  = [];
-          dData.meaningful_interactions_percent      = [];
+          dData.answers_percent = [];
+          dData.meaningful_interactions_percent = [];
       
           _.forEach(availActivities, function(act, index) {
             var x = index + 1; 
@@ -84,8 +83,6 @@ angular.module('campaignTrackerApp')
             item.color = palette.color();
           });
           
-          console.log('angular.element');
-          console.log(angular.element);
 
           var graph = new Rickshaw.Graph({
             element: angular.element("#activity_conversions_graph")[0],

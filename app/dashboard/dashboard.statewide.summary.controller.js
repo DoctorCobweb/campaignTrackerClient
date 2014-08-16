@@ -4,11 +4,6 @@ angular.module('campaignTrackerApp')
   .controller('DashboardStatewideSummaryCtrl', ['$scope','$http','$stateParams',
     function ($scope, $http, $stateParams) {
       $scope.stats= {}; 
-      $scope.breadCrumbs = [{'name':'Dashboard', 'state':'dashboard.welcome'},
-                            {'name':$stateParams.detailItem, 
-                             'state': 'dashboard.detail('
-                                     + $stateParams.detailItem + ')'}
-                           ];
 
       console.log('$stateParams');
       console.dir($stateParams);

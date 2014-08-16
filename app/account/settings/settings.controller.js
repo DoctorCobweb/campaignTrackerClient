@@ -17,5 +17,5 @@ angular.module('campaignTrackerApp')
           $scope.message = '';
         });
       }
-		};
+    };
   });

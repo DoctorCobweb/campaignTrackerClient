@@ -1,9 +1,12 @@
 'use strict';
 
 angular.module('campaignTrackerApp')
-  .controller('DashboardCtrl', ['$scope', '$state',
-    function ($scope, $state) {
-      //$scope.dashboard = dashboard;
+  .controller('DashboardCtrl', 
+            ['$scope', '$state', 'Auth', '$location',
+    function ($scope,   $state,   Auth,   $location) {
+
+      if (!Auth.isAdmin()) $location.path('/login');
+
       $scope.items = 
         [{'name':'Overview', 'endpoint':'overview'},
          {'name':'Upper House Region', 'endpoint':'upperHouseRegion'},

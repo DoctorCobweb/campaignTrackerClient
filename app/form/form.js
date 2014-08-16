@@ -27,14 +27,14 @@ angular.module('campaignTrackerApp')
         "Bayswater",
         "Box Hill",
         "Bulleen",
-        "Doncaster",
+        "Croydon",
         "Eltham",
         "Ferntree Gully",
         "Forest Hill",
-        "Kilsyth",
-        "Mitcham",
-        "Scoresby",
-        "Warrandyte",
+        "Ivanhoe",
+        "Mount Waverley",
+        "Ringwood",
+        "Warrandyte"
       ],
       "Eastern Victoria" : [
         "Bass",
@@ -53,40 +53,40 @@ angular.module('campaignTrackerApp')
         "Broadmeadows",
         "Brunswick",
         "Bundoora",
-        "Ivanhoe",
         "Melbourne",
         "Mill Park",
         "Northcote",
+        "Pascoe Vale",
         "Preston",
         "Richmond",
         "Thomastown",
-        "Yan Yean"
+        "Yuroke"
       ],
       "Northern Victoria" : [
-        "Benalla",
         "Benambra",
         "Bendigo East",
         "Bendigo West",
+        "Eildon",
+        "Euroa",
         "Macedon",
         "Mildura",
-        "Murray Valley",
-        "Rodney",
-        "Seymour",
+        "Murray Plains",
+        "Ovens Valley",
         "Shepparton",
-        "Swan Hill"
+        "Yan Yean"
       ],
       "South Eastern Metropolitan" : [
         "Carrum",
-        "Clayton",
+        "Clarinda",
         "Cranbourne",
         "Dandenong",
         "Frankston",
-        "Lyndhurst",
+        "Keysborough",
         "Mordialloc",
-        "Mount Waverley",
         "Mulgrave",
         "Narre Warren North",
-        "Narre Warren South"
+        "Narre Warren South",
+        "Rowville"
       ],
       "Southern Metropolitan" : [
         "Albert Park",
@@ -103,16 +103,16 @@ angular.module('campaignTrackerApp')
       ],
       "Western Metropolitan" : [
         "Altona",
-        "Derrimut",
         "Essendon",
         "Footscray",
-        "Keilor",
         "Kororoit",
         "Niddrie",
-        "Pascoe Vale",
+        "St Albans",
+        "Sunbury",
+        "Sydenham",
         "Tarneit",
-        "Williamstown",
-        "Yuroke"
+        "Werribee",
+        "Williamstown"
       ],
       "Western Victoria" : [
         "Bellarine",
@@ -220,3 +220,4 @@ angular.module('campaignTrackerApp')
 
     return fact;
   });
+

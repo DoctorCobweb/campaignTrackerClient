@@ -1,19 +1,28 @@
 'use strict';
 
 angular.module('campaignTrackerApp')
-  .controller('FormCtrl',
-            ['$scope', 'populateForm', '$http', 'Auth', 'numberFilter', '$modal',
-    function ($scope,   populateForm,   $http,   Auth,   numberFilter,   $modal) {
+  .controller('FormCtrl', 
+             ['$scope', 'populateForm', '$http', 'Auth', 'numberFilter', 
+              '$modal', '$location',
+    function ($scope, populateForm, $http, Auth, numberFilter, $modal, $location) {
+
+      if (!Auth.isLoggedIn()) $location.path('/login');
+
+      console.log('Auth.isLoggedIn()');
+      console.log(Auth.isLoggedIn());
+      console.log('Auth.getCurrentUser().role');
+      console.log(Auth.getCurrentUser().role);
+      
       init();
 
-      $scope.update = function() {
-        var d = new Date();
-        d.setHours( 14 );
-        d.setMinutes( 0 );
-        $scope.data.activityDetails.activityStartTime = d;
-      };
+      /*
+      $http.get('/api/users/me').success(function (user) {
+        init();
+	console.log(
+      });
+      */
 
-  
+
       function init() {
         //this is used to limit route access
         //$http.get('/api/surveys').success(function (users) {
@@ -27,6 +36,9 @@ angular.module('campaignTrackerApp')
         $scope.data.campaignDetails = {};
         $scope.data.activityDetails = {};
 
+	//set the logged in user.role now since it's set from server during login
+        $scope.data.campaignDetails.loggedInRole = Auth.getCurrentUser().role;
+
         //$scope.data.activityDetails.activityStartTime= new Date();
         $scope.hstep = 1;
         $scope.mstep = 5;
@@ -38,10 +50,18 @@ angular.module('campaignTrackerApp')
 
         $scope.regions = populateForm.regions();
         $scope.data.campaignDetails.region = $scope.regions[0];
-        $scope.districts= populateForm.districts();
+        $scope.districts = populateForm.districts();
         $scope.people = populateForm.people();
-        $scope.neighbourhoodTeams= populateForm.nTeams();
+        $scope.neighbourhoodTeams = populateForm.nTeams();
         $scope.activityTypes = populateForm.aTypes();
+
+        $scope.update = function() {
+          var d = new Date();
+          d.setHours( 14 );
+          d.setMinutes( 0 );
+          $scope.data.activityDetails.activityStartTime = d;
+        };
+
       };
 
 
