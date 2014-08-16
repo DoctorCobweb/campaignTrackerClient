@@ -8,20 +8,7 @@ angular.module('campaignTrackerApp')
 
       if (!Auth.isLoggedIn()) $location.path('/login');
 
-      console.log('Auth.isLoggedIn()');
-      console.log(Auth.isLoggedIn());
-      console.log('Auth.getCurrentUser().role');
-      console.log(Auth.getCurrentUser().role);
-      
       init();
-
-      /*
-      $http.get('/api/users/me').success(function (user) {
-        init();
-	console.log(
-      });
-      */
-
 
       function init() {
         //this is used to limit route access
@@ -61,9 +48,7 @@ angular.module('campaignTrackerApp')
           d.setMinutes( 0 );
           $scope.data.activityDetails.activityStartTime = d;
         };
-
       };
-
 
       //called when user tries to submit the form
       $scope.openModal = function (size) {
@@ -86,7 +71,6 @@ angular.module('campaignTrackerApp')
           console.log('Modal dismissed at: ' + new Date());
         });
       };
-
 
       //called when user has said details are correct. go onto submitting the form now
       $scope.submitForm = function () {

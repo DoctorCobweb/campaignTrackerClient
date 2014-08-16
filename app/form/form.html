@@ -50,7 +50,7 @@
     
 
         <h5>Start time of activity:</h5>
-        <timepicker ng-model="data.activityDetails.activityStartTime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian" required></timepicker>
+        <timepicker ng-model="data.activityDetails.activityStartTime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian" mousewheel="false" required></timepicker>
 
 
 
@@ -208,6 +208,7 @@
   </form>
 
 
-  <pre class="fields">form data = {{ data | json}}</pre>
+  <!--<pre class="fields">form data = {{ data | json}}</pre>-->
  
 </div>
+<div ng-include="'components/footer/footer.html'"<div>

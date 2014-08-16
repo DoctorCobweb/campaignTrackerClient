@@ -25,15 +25,16 @@ angular.module('campaignTrackerApp')
             'Volunteer Recruitment Phone Calling': 2
           };
           
-          var formattedData = _.map(scope.data, function (item, index) {
-            return {
-              x:relevantActivities[item.activity],
-              y:item.volTotalWorkHrs
-            };
-          });
-          console.log('formattedData');
-          console.dir(formattedData);
-
+          var formattedData = _.chain(scope.data)
+            .map(function (item, index) {
+              return {
+                x:relevantActivities[item.activity],
+                y:item.volTotalWorkHrs
+              };
+            })
+	    .sortBy('x')
+	    .value();
+	    
           var graph = new Rickshaw.Graph({
             element: angular.element("#activity_total_vol_work_hrs_graph")[0],
             width: 750,
@@ -73,7 +74,6 @@ angular.module('campaignTrackerApp')
           });
           yAxis.render();
 
-
           var hoverDetail = new Rickshaw.Graph.HoverDetail({
             graph: graph,
             xFormatter: formatVerbose,
@@ -83,6 +83,7 @@ angular.module('campaignTrackerApp')
           });
 
           graph.render();
+
         });
       }
     };
