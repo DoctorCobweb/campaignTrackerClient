@@ -65,14 +65,20 @@
           <h5>Meaningful interactions:</h5>
           <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.meaningfulInteractions" placeholder="Enter number of meaningful interactions you had." ng-required="data.activityDetails.activityType === 'Door Knocking'">
 
-          <h5>Number of people who attended door knock:</h5>
-          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.attendance" placeholder="Enter attendance" ng-required="data.activityDetails.activityType === 'Door Knocking'">
+          <div ng-show="role === 'admin'">
+            <h5>Number of people who attended door knock:</h5>
+            <input type="number" min="0" max="2998" class="form-control fields" ng-show="role === 'admin'" ng-model="data.activityDetails.attendance" placeholder="Enter attendance" ng-required="data.activityDetails.activityType === 'Door Knocking' && role === 'admin'">
+          </div>
   
-          <h5>Total volunteer hours for activity:</h5>
-          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.volTotalWorkHrs" placeholder="A group of vols only counts as ONE person because they're doing the same work." ng-required="data.activityDetails.activityType === 'Door Knocking'">
+          <div ng-show="role === 'admin'">
+            <h5>Total volunteer hours for activity:</h5>
+            <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.volTotalWorkHrs" placeholder="A group of vols only counts as ONE person because they're doing the same work." ng-required="data.activityDetails.activityType === 'Door Knocking' && role === 'admin'">
+          </div>
   
-          <h5>Total hours spent training volunteers:</h5>
-          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.volTotalTrainingHrs" placeholder="Enter total in hours, e.g 4.5" ng-required="data.activityDetails.activityType === 'Door Knocking'">
+          <div ng-show="role === 'admin'">
+            <h5>Total hours spent training volunteers:</h5>
+            <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.volTotalTrainingHrs" placeholder="Enter total in hours, e.g 4.5" ng-required="data.activityDetails.activityType === 'Door Knocking' && role === 'admin'">
+          </div>
         </div>
 
 
@@ -87,14 +93,20 @@
           <h5>Meaningful interactions:</h5>
           <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.meaningfulInteractions" placeholder="Enter number of meaningful interactions you had." ng-required="data.activityDetails.activityType === 'Phone Banking'">
 
-          <h5>Number of people who attended phone banking:</h5>
-          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.attendance" placeholder="Enter attendance" ng-required="data.activityDetails.activityType === 'Phone Banking'">
+          <div ng-show="role === 'admin'">
+            <h5>Number of people who attended phone banking:</h5>
+            <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.attendance" placeholder="Enter attendance" ng-required="data.activityDetails.activityType === 'Phone Banking' && role === 'admin'">
+          </div>
   
-          <h5>Total volunteer hours for activity:</h5>
-          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.volTotalWorkHrs" placeholder="A group of vols only counts as ONE person because they're doing the same work." ng-required="data.activityDetails.activityType === 'Phone Banking'">
+          <div ng-show="role === 'admin'">
+            <h5>Total volunteer hours for activity:</h5>
+            <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.volTotalWorkHrs" placeholder="A group of vols only counts as ONE person because they're doing the same work." ng-required="data.activityDetails.activityType === 'Phone Banking' && role === 'admin'">
+          </div>
   
-          <h5>Total hours spent training volunteers:</h5>
-          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.volTotalTrainingHrs" placeholder="Enter total in hours, e.g 4.5" ng-required="data.activityDetails.activityType === 'Phone Banking'">
+          <div ng-show="role === 'admin'">
+            <h5>Total hours spent training volunteers:</h5>
+            <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.volTotalTrainingHrs" placeholder="Enter total in hours, e.g 4.5" ng-required="data.activityDetails.activityType === 'Phone Banking' && role === 'admin'">
+          </div>
         </div>
 
 
@@ -109,17 +121,25 @@
           <h5>Meaningful interactions:</h5>
           <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.meaningfulInteractions" placeholder="Enter number of meaningful interactions you had." ng-required="data.activityDetails.activityType === 'Volunteer Recruitment Phone Calling'">
 
-          <h5>Number of people who attended volunteer recruitment phone calling:</h5>
-          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.attendance" placeholder="Enter attendance" ng-required="data.activityDetails.activityType === 'Volunteer Recruitment Phone Calling'">
+          <div ng-show="role === 'admin'">
+            <h5>Number of people who attended volunteer recruitment phone calling:</h5>
+            <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.attendance" placeholder="Enter attendance" ng-required="data.activityDetails.activityType === 'Volunteer Recruitment Phone Calling' && role === 'admin'">
+          </div>
   
-          <h5>Total volunteer hours for activity:</h5>
-          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.volTotalWorkHrs" placeholder="A group of vols only counts as ONE person because they're doing the same work." ng-required="data.activityDetails.activityType === 'Volunteer Recruitment Phone Calling'">
+          <div ng-show="role === 'admin'">
+            <h5>Total volunteer hours for activity:</h5>
+            <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.volTotalWorkHrs" placeholder="A group of vols only counts as ONE person because they're doing the same work." ng-required="data.activityDetails.activityType === 'Volunteer Recruitment Phone Calling' && role === 'admin'">
+          </div>
   
-          <h5>Total hours spent training volunteers:</h5>
-          <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.volTotalTrainingHrs" placeholder="Enter total in hours, e.g 4.5" ng-required="data.activityDetails.activityType === 'Volunteer Recruitment Phone Calling'">
+          <div ng-show="role === 'admin'">
+            <h5>Total hours spent training volunteers:</h5>
+            <input type="number" min="0" max="2998" class="form-control fields" ng-model="data.activityDetails.volTotalTrainingHrs" placeholder="Enter total in hours, e.g 4.5" ng-required="data.activityDetails.activityType === 'Volunteer Recruitment Phone Calling' && role === 'admin'">
+          </div>
   
-          <h5>Total volunteer hours committed:</h5>
-          <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.volTotalHrsCommitted" placeholder="Total hrs the new vols have commited to. For example, 3 new vols agree to attend 4hr event: 12hrs" ng-required="data.activityDetails.activityType === 'Volunteer Recruitment Phone Calling'">
+          <div ng-show="role === 'admin'">
+            <h5>Total volunteer hours committed:</h5>
+            <input type="number" min="0" max="998" class="form-control fields" ng-model="data.activityDetails.volTotalHrsCommitted" placeholder="Total hrs the new vols have commited to. For example, 3 new vols agree to attend 4hr event: 12hrs" ng-required="data.activityDetails.activityType === 'Volunteer Recruitment Phone Calling' && role === 'admin'">
+          </div>
         </div>
 
 
@@ -208,7 +228,7 @@
   </form>
 
 
-  <!--<pre class="fields">form data = {{ data | json}}</pre>-->
+  <pre class="fields">form data = {{ data | json}}</pre>
  
 </div>
 <div ng-include="'components/footer/footer.html'"<div>

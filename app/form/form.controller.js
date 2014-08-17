@@ -11,14 +11,7 @@ angular.module('campaignTrackerApp')
       init();
 
       function init() {
-        //this is used to limit route access
-        //$http.get('/api/surveys').success(function (users) {
-        //  $scope.isAuthenticated = Auth.isLoggedIn();
-        //});
-
-        //put this stuff in success callback of $http.get call above to hide form
-        //behind login. for now you can see it without being logged in inorder to speed 
-        //up dev time
+        $scope.role = Auth.getCurrentUser().role;
         $scope.data = {};
         $scope.data.campaignDetails = {};
         $scope.data.activityDetails = {};
@@ -97,6 +90,7 @@ angular.module('campaignTrackerApp')
         $http.post('/api/surveys', $scope.data).
           success(function(respData, status, headers, config){
             $scope.data = {};
+	    init();
             alert('SUCCESS: Your data has been submitted successfully.');
           }).
           error(function(respData, status, headers, config){
