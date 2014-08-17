@@ -42,23 +42,6 @@ angular.module('campaignTrackerApp', [
   })
 
 
-  .directive('jqdatepicker', function () {
-    return {
-        restrict: 'A',
-        require: 'ngModel',
-        link: function ($scope, element, attrs, ngModelCtrl) {
-            element.datepicker({
-                dateFormat: 'DD, d  MM, yy',
-                onSelect: function (date) {
-                    $scope.data.activityDetails.activityDate = date;
-                    $scope.$apply();
-                }
-            });
-        }
-    };
-  })
-
-
   .run(function ($rootScope, $state, $stateParams, $location, Auth) {
 
     // Redirect to login if route requires auth and you're not logged in

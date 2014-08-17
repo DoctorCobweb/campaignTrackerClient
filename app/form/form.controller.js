@@ -57,8 +57,8 @@ angular.module('campaignTrackerApp')
         });
 
         modalInstance.result.then(function (selectedItem) {
-          $scope.selected = selectedItem;
-          console.log('$scope.selected dummy is: ' + selectedItem);
+          //$scope.selected = selectedItem;
+          //console.log('$scope.selected dummy is: ' + selectedItem);
           $scope.submitForm();
         }, function () {
           console.log('Modal dismissed at: ' + new Date());
@@ -67,29 +67,12 @@ angular.module('campaignTrackerApp')
 
       //called when user has said details are correct. go onto submitting the form now
       $scope.submitForm = function () {
-        $scope.dataForm.$setPristine();
-
-        //do some linting on number values
-        $scope.data.activityDetails.attempts = numberFilter(
-          $scope.data.activityDetails.attempts, 2);
-        $scope.data.activityDetails.answered = numberFilter(
-          $scope.data.activityDetails.answered, 2);
-        $scope.data.activityDetails.meaningfulInteractions = numberFilter(
-          $scope.data.activityDetails.meaningfulInteractions, 2);
-        $scope.data.activityDetails.volTotalWorkHrs = numberFilter(
-          $scope.data.activityDetails.volTotalWorkHrs, 2);
-        $scope.data.activityDetails.volTotalTrainingHrs = numberFilter(
-          $scope.data.activityDetails.volTotalTrainingHrs, 2);
-
-        if ($scope.data.activityDetails.volTotalHrsCommitted) {
-          $scope.data.activityDetails.volTotalHrsCommitted = numberFilter(
-           $scope.data.activityDetails.volTotalHrsCommitted, 2);
-        }
+        //$scope.dataForm.$setPristine();
 
         //send data to backend
         $http.post('/api/surveys', $scope.data).
           success(function(respData, status, headers, config){
-            $scope.data = {};
+            $scope.dataForm.$setPristine();
 	    init();
             alert('SUCCESS: Your data has been submitted successfully.');
           }).
