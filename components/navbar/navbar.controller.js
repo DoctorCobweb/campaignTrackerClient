@@ -2,26 +2,11 @@
 
 angular.module('campaignTrackerApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
-    /*
-    $scope.menu = [
-      {
-      'title': 'Main',
-      'link': 'main'
-      },
-      {
-      'title': 'Form',
-      'link': 'form'
-      },
-      {
-      'title': 'Dashboard',
-      'link': 'dashboard'
-      }
-    ];
-    */
 
     $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.isAdmin = Auth.isAdmin;
+    $scope.isLeadOrganizer = Auth.isLeadOrganizer;
     $scope.getCurrentUser = Auth.getCurrentUser;
 
     $scope.logout = function() {

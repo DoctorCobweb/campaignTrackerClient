@@ -14,6 +14,4 @@ angular.module('campaignTrackerApp')
          {'name':'Person', 'endpoint':'person'},
          {'name':'All Surveys', 'endpoint':'allSurveys'},
          {'name':'Event Report', 'endpoint':'eventReport'}];
-
-      console.dir($scope.items);
   }]);

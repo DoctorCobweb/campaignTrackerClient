@@ -120,6 +120,24 @@ angular.module('campaignTrackerApp')
       },
 
       /**
+       * Check if a user is a team leader 
+       *
+       * @return {Boolean}
+       */
+      isTeamLeader: function() {
+        return currentUser.role === 'teamLeader';
+      },
+
+      /**
+       * Check if a user is an individual 
+       *
+       * @return {Boolean}
+       */
+      isIndividual: function() {
+        return currentUser.role === 'individual';
+      },
+
+      /**
        * Get auth token
        */
       getToken: function() {

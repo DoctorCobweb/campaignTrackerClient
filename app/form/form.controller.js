@@ -2,24 +2,28 @@
 
 angular.module('campaignTrackerApp')
   .controller('FormCtrl', 
-             ['$scope', 'populateForm', '$http', 'Auth', 'numberFilter', 
-              '$modal', '$location',
-    function ($scope, populateForm, $http, Auth, numberFilter, $modal, $location) {
+             ['$scope', 'populateForm', '$http', 'Auth', '$modal', '$location',
+    function ( $scope,   populateForm,   $http,   Auth,   $modal,   $location) {
 
       if (!Auth.isLoggedIn()) $location.path('/login');
 
       init();
 
       function init() {
-        $scope.role = Auth.getCurrentUser().role;
+	var user = Auth.getCurrentUser();
         $scope.data = {};
         $scope.data.campaignDetails = {};
         $scope.data.activityDetails = {};
 
-	//set the logged in user.role now since it's set from server during login
-        $scope.data.campaignDetails.loggedInRole = Auth.getCurrentUser().role;
+	//important: keep a ref of user document in
+        $scope.data.campaignDetails.user = Auth.getCurrentUser()._id;
 
-        //$scope.data.activityDetails.activityStartTime= new Date();
+	//set the logged in user.role now since it's set from server during login
+        $scope.data.campaignDetails.loggedInRole = user.role;
+        $scope.data.campaignDetails.loggedInName = user.name;
+        $scope.data.campaignDetails.loggedInEmail = user.email;
+
+        //$scope.data.activityDetails.activityStartTime = new Date();
         $scope.hstep = 1;
         $scope.mstep = 5;
         $scope.options = {
@@ -43,8 +47,38 @@ angular.module('campaignTrackerApp')
         };
       };
 
+      function parseActivityStringsToFloats () {
+	//want to parse from string to float these values:
+        //meaningfulInteractions
+	//answered
+	//attempts
+	//volTotalWorkHrs
+	//voTotalTrainingHrs
+	//attendance
+	//volTotalHrsCommitted
+	
+	var parsed = _.reduce($scope.data.activityDetails, function (acc, val, key) {
+	  if (key === 'comment' || key === 'activityType' || typeof(val) !== 'string') {
+            acc[key] = val;
+	    return acc;
+	  }
+          if (typeof(val) === 'string') {
+	    acc[key] = parseFloat(val, 10); 
+	    return acc;
+	  }
+	}, {});
+
+	//set parsed to be activityDetails obj
+	$scope.data.activityDetails = parsed;
+      }
+
+
       //called when user tries to submit the form
       $scope.openModal = function (size) {
+
+        //since inputs are text type we need to parse to numbers
+	parseActivityStringsToFloats();
+
         var modalInstance = $modal.open({
           templateUrl: 'app/form/formModalContent.html',
           controller: 'formModalInstanceCtrl',
@@ -67,9 +101,6 @@ angular.module('campaignTrackerApp')
 
       //called when user has said details are correct. go onto submitting the form now
       $scope.submitForm = function () {
-        //$scope.dataForm.$setPristine();
-
-        //send data to backend
         $http.post('/api/surveys', $scope.data).
           success(function(respData, status, headers, config){
             $scope.dataForm.$setPristine();
