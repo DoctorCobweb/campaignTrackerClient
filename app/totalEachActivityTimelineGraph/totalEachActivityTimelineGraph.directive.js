@@ -31,7 +31,6 @@ angular.module('campaignTrackerApp')
           });
           //console.dir(scope.data);
 
-
           var graph = new Rickshaw.Graph({
             element: angular.element("#total_each_activity_timeline_graph")[0],
             width: 750,
@@ -83,7 +82,6 @@ angular.module('campaignTrackerApp')
           });
           yAxis.render();
 
-
           graph.render();
 
           var legend = new Rickshaw.Graph.Legend({
@@ -105,8 +103,6 @@ angular.module('campaignTrackerApp')
           	graph: graph,
           	legend: legend
           });
-
-
         });
       }
     };

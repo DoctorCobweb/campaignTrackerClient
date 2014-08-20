@@ -1,5 +1,7 @@
 'use strict';
 
+//THIS FORM IS THE SUMMARY FORM!!!!
+
 angular.module('campaignTrackerApp')
   .controller('FormCtrl', 
              ['$scope', 'populateForm', '$http', 'Auth', '$modal', '$location',
@@ -18,7 +20,11 @@ angular.module('campaignTrackerApp')
 	//important: keep a ref of user document in
         $scope.data.campaignDetails.user = Auth.getCurrentUser()._id;
 
-	//set the logged in user.role now since it's set from server during login
+	//set survey to be of summary type (important!)
+	$scope.data.campaignDetails.type = 'summary';
+
+	//some values to be used in modal popup. we store a ref to the user document
+	//in a survey document anyways so we have this info and more.
         $scope.data.campaignDetails.loggedInRole = user.role;
         $scope.data.campaignDetails.loggedInName = user.name;
         $scope.data.campaignDetails.loggedInEmail = user.email;
@@ -47,6 +53,7 @@ angular.module('campaignTrackerApp')
         };
       };
 
+      /*
       function parseActivityStringsToFloats () {
 	//want to parse from string to float these values:
         //meaningfulInteractions
@@ -71,13 +78,14 @@ angular.module('campaignTrackerApp')
 	//set parsed to be activityDetails obj
 	$scope.data.activityDetails = parsed;
       }
+      */
 
 
       //called when user tries to submit the form
       $scope.openModal = function (size) {
 
         //since inputs are text type we need to parse to numbers
-	parseActivityStringsToFloats();
+	//parseActivityStringsToFloats();
 
         var modalInstance = $modal.open({
           templateUrl: 'app/form/formModalContent.html',
