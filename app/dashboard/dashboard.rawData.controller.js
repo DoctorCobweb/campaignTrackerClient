@@ -5,6 +5,7 @@ angular.module('campaignTrackerApp')
             ['$scope', '$http', '$modal',
     function ($scope,   $http,   $modal) {
       $scope.surveys = {};
+      $scope.searchTerm;
   
       $http.get('/api/surveys')
         .success(function (data) {
@@ -33,5 +34,4 @@ angular.module('campaignTrackerApp')
         console.log('$scope.surveys[index]');
         console.log($scope.surveys[index]);
       };
-
   }]);

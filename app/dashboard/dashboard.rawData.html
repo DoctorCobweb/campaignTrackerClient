@@ -19,7 +19,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="survey in surveys track by $index| filter:searchTerm" ng-click="openModal($index, 'lg')">
+	    <!--<tr ng-repeat="survey in surveys track by $index | filter:searchTerm" ng-click="openModal($index, 'lg')">-->
+      <tr ng-repeat="survey in surveys | filter:searchTerm" ng-click="openModal($index, 'lg')">
         <td>{{$index + 1}}</td>
         <td>{{survey.region}}</td>
         <td>{{survey.district}}</td>
@@ -28,7 +29,7 @@
         <td>{{survey.activity[0].activityStartTime| date:'shortTime'}}</td>
         <td>{{survey.organizerPerson}}</td>
         <td>{{survey.dataEntryPerson}}</td>
-        <td>{{survey.loggedDate |date:'d/M/yy, h:mm a'}}</td>
+        <td>{{survey.loggedDate | date:'d/M/yy, h:mm a'}}</td>
       </tr>
     </tbody>
   </table>

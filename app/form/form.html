@@ -8,8 +8,10 @@
     <div class="section">
        <h4>Campaign Details</h4>
 
+       <!--
        <h5>Your name:</h5>
        <input class="form-control fields" ng-model="data.campaignDetails.dataEntryPerson" placeholder="Person entering the data" required>
+       -->
 
        <h5>Upper house region:</h5>
          <select ng-model="data.campaignDetails.region" class="fields" required>
@@ -20,10 +22,15 @@
          <select ng-model="data.campaignDetails.district" class="fields" required>
            <option ng-repeat="district in districts[data.campaignDetails.region]" value="{{district}}">{{district}}</option>
          </select><br/>
+
+        <h5>Your name (name of person entering the data):</h5>
+        <select ng-model="data.campaignDetails.dataEntryPerson" class="fields" required>
+          <option ng-repeat="person in dataEntryPeople[data.campaignDetails.region]" value="{{person}}">{{person}}</option>
+        </select><br/>
     
         <h5>Activity organizer person (name of person who ran the activity):</h5>
         <select ng-model="data.campaignDetails.organizerPerson" class="fields" required>
-          <option ng-repeat="person in people[data.campaignDetails.region]" value="{{person}}">{{person}}</option>
+          <option ng-repeat="person in organizerPeople[data.campaignDetails.region]" value="{{person}}">{{person}}</option>
         </select><br/>
 
 
@@ -38,7 +45,7 @@
 
         <h5>Activity type:</h5>
         <select ng-model="data.activityDetails.activityType" class="fields" required>
-          <option ng-repeat="activity in activityTypes"  value="{{activity}}">{{activity}}</option>
+          <option ng-repeat="activity in activityTypes" value="{{activity}}">{{activity}}</option>
         </select><br/>
 
         <h5>Date of activity:</h5>

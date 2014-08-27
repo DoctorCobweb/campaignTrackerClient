@@ -1,7 +1,7 @@
 'use strict';
 
 // please note that $modalInstance represents a modal window (instance) dependency.
-// it is not the same as the $modal service used above.
+// it is not the same as the $modal service used.
 
 angular.module('campaignTrackerApp')
   .controller('rawDataModalInstanceCtrl', 
@@ -14,7 +14,7 @@ angular.module('campaignTrackerApp')
       });
 
       $scope.campaignPairs = _.reject(_.pairs(data), function (pair) {
-        return (pair[0] === '__v' || pair[0] === '_id' || pair[0] === 'activity');
+        return (pair[0] === '__v' || pair[0] === '_id' || pair[0] === 'activity' || pair[0] === 'user');
       });
 
        

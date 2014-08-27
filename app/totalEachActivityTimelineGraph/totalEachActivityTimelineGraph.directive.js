@@ -85,23 +85,23 @@ angular.module('campaignTrackerApp')
           graph.render();
 
           var legend = new Rickshaw.Graph.Legend({
-          	graph: graph,
-          	element: angular.element("#total_each_activity_timeline_legend")[0]
+            graph: graph,
+            element: angular.element("#total_each_activity_timeline_legend")[0]
           });
           
           var shelving = new Rickshaw.Graph.Behavior.Series.Toggle({
-          	graph: graph,
-          	legend: legend
+            graph: graph,
+            legend: legend
           });
           
           var order = new Rickshaw.Graph.Behavior.Series.Order({
-          	graph: graph,
-          	legend: legend
+            graph: graph,
+            legend: legend
           });
           
           var highlight = new Rickshaw.Graph.Behavior.Series.Highlight({
-          	graph: graph,
-          	legend: legend
+            graph: graph,
+            legend: legend
           });
         });
       }

@@ -41,7 +41,8 @@ angular.module('campaignTrackerApp')
         $scope.regions = populateForm.regions();
         $scope.data.campaignDetails.region = $scope.regions[0];
         $scope.districts = populateForm.districts();
-        $scope.people = populateForm.people();
+        $scope.organizerPeople = populateForm.organizerPeople();
+        $scope.dataEntryPeople = populateForm.dataEntryPeople();
         $scope.neighbourhoodTeams = populateForm.nTeams();
         $scope.activityTypes = populateForm.aTypes();
 
