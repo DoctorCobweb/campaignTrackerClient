@@ -122,91 +122,183 @@ angular.module('campaignTrackerApp')
 
     //TOCO: add district ppl
     var organizerPeople = {
-      'Eastern Metropolitan':['EMPerson1', 'EMPerson2', 
-                              'EMPerson3', 'EMPerson4'],
+      'Eastern Metropolitan':[
+        'EMPerson1',
+        'EMPerson2', 
+        'EMPerson3',
+	'EMPerson4'],
 
-      'Eastern Victoria':['EVPerson1', 'EVPerson2', 
-                          'EVPerson3','EVPerson4'],
+      'Eastern Victoria':[
+	'EVPerson1',
+        'EVPerson2', 
+        'EVPerson3',
+	'EVPerson4'],
 
-      'Northern Metropolitan':['NMPerson1', 'NMPerson2', 
-                               'NMPerson3', 'MNPerson4'],
+      'Northern Metropolitan':[
+	'NMPerson1',
+        'NMPerson2', 
+        'NMPerson3',
+	'MNPerson4'],
 
-      'Northern Victoria':['NVPerson1', 'NVPerson2', 
-                           'NVPerson3', 'NVPerson4'],
+      'Northern Victoria':[
+	'NVPerson1',
+        'NVPerson2', 
+        'NVPerson3',
+	'NVPerson4'],
 
-      'South Eastern Metropolitan':['SEMPerson1', 'SEMPerson2', 
-                                    'SEMPerson3', 'SEMPerson4'],
+      'South Eastern Metropolitan':[
+	'SEMPerson1',
+        'SEMPerson2', 
+        'SEMPerson3',
+	'SEMPerson4'],
 
-      'Southern Metropolitan':['SMPerson1', 'SMPerson2',
-                               'SMPerson3', 'SMPerson4'],
+      'Southern Metropolitan':[
+	'SMPerson1',
+        'SMPerson2',
+        'SMPerson3',
+	'SMPerson4'],
 
-      'Western Metropolitan':['WMPerson1', 'WMPerson2', 
-                              'WMPerson3', 'WMPerson4'],
+      'Western Metropolitan':[
+	'WMPerson1',
+        'WMPerson2', 
+        'WMPerson3',
+	'WMPerson4'],
 
-      'Western Victoria':['Lloyd Davies', 'Maxwell Smith', 
-                          'Laura Robertson', 'Andre Trosky',
-                          'Bill from Torquay', 'Glen Smith',
-                          'Clara Davies', 'Judy Cameron', 'Gail Russell']
-
+      'Western Victoria':[
+	'Alice Barnes',
+	'Brenda Roberts',
+        'Clara Davies',
+	'Damien Van Brink',
+	'David Capon',
+	'Emilie Carey',
+	'Gail Russell',
+        'Jan Weate',
+	'Jennie Fraine',
+        'Laura Robertson',
+	'Linda Harris',
+	'Lisa Owen',
+	'Lloyd Davies',
+	'Marie-Anne Cooper',
+        'Maxwell Smith', 
+	'Miranda Brockman',
+	'Monique Weber',
+	'Natalie Atherden',
+	'Tom Campbell',
+	'Tom Kelly',
+	'Tony Goodfellow',
+	'Zara Pritchard']
     };
 
 
     //TOCO: add district ppl
     var dataEntryPeople = {
-      'Eastern Metropolitan':['DataEMPerson1', 'DataEMPerson2', 
-                              'DataEMPerson3', 'DataEMPerson4'],
+      'Eastern Metropolitan':[
+        'DataEMPerson1',
+        'DataEMPerson2', 
+        'DataEMPerson3',
+	'DataEMPerson4'],
 
-      'Eastern Victoria':['DataEVPerson1', 'DataEVPerson2', 
-                          'DataEVPerson3','DataEVPerson4'],
+      'Eastern Victoria':[
+	'DataEVPerson1',
+        'DataEVPerson2', 
+        'DataEVPerson3',
+	'DataEVPerson4'],
 
-      'Northern Metropolitan':['DataNMPerson1', 'DataNMPerson2', 
-                               'DataNMPerson3', 'DataMNPerson4'],
+      'Northern Metropolitan':[
+	'DataNMPerson1',
+        'DataNMPerson2', 
+        'DataNMPerson3',
+	'DataMNPerson4'],
 
-      'Northern Victoria':['DataNVPerson1', 'DataNVPerson2', 
-                           'DataNVPerson3', 'DataNVPerson4'],
+      'Northern Victoria':[
+	'DataNVPerson1',
+        'DataNVPerson2', 
+        'DataNVPerson3',
+	'DataNVPerson4'],
 
-      'South Eastern Metropolitan':['DataSEMPerson1', 'DataSEMPerson2', 
-                                    'DataSEMPerson3', 'DataSEMPerson4'],
+      'South Eastern Metropolitan':[
+	'DataSEMPerson1',
+        'DataSEMPerson2', 
+        'DataSEMPerson3',
+	'DataSEMPerson4'],
 
-      'Southern Metropolitan':['DataSMPerson1', 'DataSMPerson2',
-                               'DataSMPerson3', 'DataSMPerson4'],
+      'Southern Metropolitan':[
+	'DataSMPerson1',
+        'DataSMPerson2',
+        'DataSMPerson3',
+	'DataSMPerson4'],
 
-      'Western Metropolitan':['DataWMPerson1', 'DataWMPerson2', 
-                              'DataWMPerson3', 'DataWMPerson4'],
+      'Western Metropolitan':[
+	'DataWMPerson1',
+        'DataWMPerson2', 
+        'DataWMPerson3',
+	'DataWMPerson4'],
 
-      'Western Victoria':['Data Lloyd Davies', 'Data Maxwell Smith', 
-                          'DataAndre Trosky',
-                          'Data Bill from Torquay', 'Data Glen Smith',
-                          'Data Clara Davies', 'Data Judy Cameron']
+      'Western Victoria':[
+        'Andre Trosky',
+        'Clara Davies',
+	'Glenda Smith',
+	'Lloyd Davies',
+        'Maxwell Smith']
     };
 
 
 
     var nTeams = {
-      'Eastern Metropolitan':['EMTeam1', 'EMTeam2', 
-                              'EMTeam3', 'EMTeam4'],
+      'Eastern Metropolitan':[
+        'EMTeam1',
+        'EMTeam2', 
+        'EMTeam3',
+	'EMTeam4'],
 
-      'Eastern Victoria':['EVTeam1', 'EVTeam2', 
-                          'EVTeam3','EVTeam4'],
+      'Eastern Victoria':[
+        'EVTeam1',
+        'EVTeam2', 
+        'EVTeam3',
+	'EVTeam4'],
 
-      'Northern Metropolitan':['NMTeam1', 'NMTeam2', 
-                               'NMTeam3', 'MNTeam4'],
+      'Northern Metropolitan':[
+	'NMTeam1',
+        'NMTeam2', 
+        'NMTeam3',
+	'MNTeam4'],
 
-      'Northern Victoria':['NVTeam1', 'NVTeam2', 
-                           'NVTeam3', 'NVTeam4'],
+      'Northern Victoria':[
+	'NVTeam1',
+        'NVTeam2', 
+        'NVTeam3',
+	'NVTeam4'],
 
-      'South Eastern Metropolitan':['SEMTeam1', 'SEMTeam2', 
-                                    'SEMTeam3', 'SEMTeam4'],
+      'South Eastern Metropolitan':[
+	'SEMTeam1',
+        'SEMTeam2', 
+        'SEMTeam3',
+	'SEMTeam4'],
 
-      'Southern Metropolitan':['SMTeam1', 'SMTeam2',
-                               'SMTeam3', 'SMTeam4'],
+      'Southern Metropolitan':[
+	'SMTeam1',
+        'SMTeam2',
+        'SMTeam3',
+	'SMTeam4'],
 
-      'Western Metropolitan':['WMTeam1', 'WMTeam2', 
-                              'WMTeam3', 'WMTeam4'],
+      'Western Metropolitan':[
+	'WMTeam1',
+        'WMTeam2', 
+        'WMTeam3',
+	'WMTeam4'],
 
-      'Western Victoria':['Ocean Grove', 'Torquay', 
-                          'Geelong', 'Lara',
-                          'Werribee', 'Apollo Bay', 'Ballarat']
+      'Western Victoria':[
+        'Anglesea/ Aireys Inlet',
+        'Apollo Bay',
+	'Bacchus Marsh',
+	'Ballan',
+	'Ballarat',
+	'Buninyong',
+	'Colac',
+        'Geelong',
+	'Ocean Grove',
+        'Torquay', 
+        'Warrnambool']
     };
 
     var aTypes = [
