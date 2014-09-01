@@ -290,7 +290,7 @@ angular.module('campaignTrackerApp')
       'Western Victoria':[
         'Anglesea/ Aireys Inlet',
         'Apollo Bay',
-	'Bacchus Marsh',
+	'Bacchus Marsh/ Melton',
 	'Ballan',
 	'Ballarat',
 	'Buninyong',

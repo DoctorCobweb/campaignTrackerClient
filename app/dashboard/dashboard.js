@@ -31,11 +31,13 @@ angular.module('campaignTrackerApp')
         templateUrl: 'app/dashboard/dashboard.statewide.analysis.html',
         controller: 'DashboardStatewideAnalysisCtrl'
       })
+      /*
       .state('dashboard.statewide.tracking', {
         url: '/tracking',
         templateUrl: 'app/dashboard/dashboard.statewide.tracking.html',
         controller: 'DashboardStatewideTrackingCtrl'
       })
+      */
 
       //REGION
       .state('dashboard.region', {
@@ -59,11 +61,13 @@ angular.module('campaignTrackerApp')
         templateUrl: 'app/dashboard/dashboard.region.selected.analysis.html',
         controller: 'DashboardRegionSelectedAnalysisCtrl'
       })
+      /*
       .state('dashboard.region.selected.tracking', {
         url: '/:region/tracking',
         templateUrl: 'app/dashboard/dashboard.region.selected.tracking.html',
         controller: 'DashboardRegionSelectedTrackingCtrl'
       })
+      */
 
       //DISTRICT
       .state('dashboard.district', {
@@ -87,12 +91,16 @@ angular.module('campaignTrackerApp')
         templateUrl: 'app/dashboard/dashboard.district.selected.analysis.html',
         controller: 'DashboardDistrictSelectedAnalysisCtrl'
       })
+      /*
       .state('dashboard.district.selected.tracking', {
         url: '/:district/tracking',
         templateUrl: 'app/dashboard/dashboard.district.selected.tracking.html',
         controller: 'DashboardDistrictSelectedTrackingCtrl'
       })
+      */
 
+      /*
+       * TODO
       //PERSON
       .state('dashboard.person', {
         url: '/person',
@@ -123,6 +131,7 @@ angular.module('campaignTrackerApp')
         templateUrl: 'app/dashboard/dashboard.report.html',
         controller: 'DashboardReportCtrl'
       })
+      */
 
       //RAW DATA
       .state('dashboard.rawData', {
