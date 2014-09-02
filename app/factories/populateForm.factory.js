@@ -312,8 +312,7 @@ angular.module('campaignTrackerApp')
       'Voter House Meeting',
       'Training Session'
     ]; 
-
-
+    
     fact.regions = function () {
         return uHouseRegions;
     };
@@ -332,7 +331,6 @@ angular.module('campaignTrackerApp')
     fact.aTypes = function () {
         return aTypes;
     };
-  
 
     return fact;
   });

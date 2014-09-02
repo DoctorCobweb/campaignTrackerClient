@@ -8,11 +8,6 @@
     <div class="section">
        <h4>Campaign Details</h4>
 
-       <!--
-       <h5>Your name:</h5>
-       <input class="form-control fields" ng-model="data.campaignDetails.dataEntryPerson" placeholder="Person entering the data" required>
-       -->
-
        <h5>Upper house region:</h5>
          <select ng-model="data.campaignDetails.region" class="fields" required>
            <option ng-repeat="region in regions" value="{{region}}">{{region}}</option>
@@ -70,11 +65,11 @@
           <h5>Total number of door knocks:</h5>
           <input type="text" class="form-control fields" ng-model="data.activityDetails.attempts" placeholder="Enter number of attempts made." ng-required="data.activityDetails.activityType === 'Door Knocking'" integer>
   
-          <h5>Total volunteer hours for activity (e.g. for 3hrs 30mins put 3.5):</h5>
-          <input type="text" class="form-control fields" ng-model="data.activityDetails.volTotalWorkHrs" placeholder="A group of vols only counts as ONE person because they're doing the same work." ng-required="data.activityDetails.activityType === 'Door Knocking'" smart-float>
+          <h5>Total volunteer hours for activity (e.g. for 3hrs 52mins put 3.52):</h5>
+	  <input type="text" class="form-control fields" ng-model="data.activityDetails.volTotalWorkHrs" placeholder="A group of vols only counts as ONE person because they're doing the same work." ng-required="data.activityDetails.activityType === 'Door Knocking'" smart-float>
 
-          <h5>Total hours spent training volunteers:</h5>
-          <input type="text" class="form-control fields" ng-model="data.activityDetails.volTotalTrainingHrs" placeholder="Enter total in hours, e.g 4.5 for 4hrs 30mins" ng-required="data.activityDetails.activityType === 'Door Knocking'" smart-float>
+          <h5>Total hours spent training volunteers (e.g. for 4hrs 30min put 4.30):</h5>
+          <input type="text" class="form-control fields" ng-model="data.activityDetails.volTotalTrainingHrs" ng-required="data.activityDetails.activityType === 'Door Knocking'" smart-float>
 
           <h5>Number of people who attended door knock:</h5>
           <input type="text" class="form-control fields" ng-model="data.activityDetails.attendance" placeholder="Enter attendance" ng-required="data.activityDetails.activityType === 'Door Knocking'" integer>
@@ -93,11 +88,11 @@
           <h5>Total number of phone calls made:</h5>
           <input type="text" class="form-control fields" ng-model="data.activityDetails.attempts" placeholder="Enter number of phone calls made." ng-required="data.activityDetails.activityType === 'Phone Banking'" integer>
 
-          <h5>Total volunteer hours for activity (e.g. for 3hrs 30mins put 3.5):</h5>
+          <h5>Total volunteer hours for activity (e.g. for 3hrs 52mins put 3.52):</h5>
           <input type="text" class="form-control fields" ng-model="data.activityDetails.volTotalWorkHrs" placeholder="A group of vols only counts as ONE person because they're doing the same work." ng-required="data.activityDetails.activityType === 'Phone Banking'" smart-float>
 
-          <h5>Total hours spent training volunteers:</h5>
-          <input type="text" class="form-control fields" ng-model="data.activityDetails.volTotalTrainingHrs" placeholder="Enter total in hours, e.g 4.5 for 4hrs 30mins" ng-required="data.activityDetails.activityType === 'Phone Banking'" smart-float>
+          <h5>Total hours spent training volunteers (e.g. for 4hrs 30mins put 4.3):</h5>
+          <input type="text" class="form-control fields" ng-model="data.activityDetails.volTotalTrainingHrs" ng-required="data.activityDetails.activityType === 'Phone Banking'" smart-float>
 
           <h5>Number of people who attended phone banking:</h5>
           <input type="text" class="form-control fields" ng-model="data.activityDetails.attendance" placeholder="Enter attendance" ng-required="data.activityDetails.activityType === 'Phone Banking'" integer>
@@ -116,16 +111,16 @@
           <h5>Total number of phone calls made:</h5>
           <input type="text" class="form-control fields" ng-model="data.activityDetails.attempts" placeholder="Enter number of phone calls made." ng-required="data.activityDetails.activityType === 'Volunteer Recruitment Phone Calling'" integer>
   
-          <h5>Total volunteer hours for activity (e.g. for 3hrs 30mins put 3.5):</h5>
+          <h5>Total volunteer hours for activity (e.g. for 3hrs 52mins put 3.52):</h5>
           <input type="text" class="form-control fields" ng-model="data.activityDetails.volTotalWorkHrs" placeholder="A group of vols only counts as ONE person because they're doing the same work." ng-required="data.activityDetails.activityType === 'Volunteer Recruitment Phone Calling'" smart-float>
 
-          <h5>Total hours spent training volunteers:</h5>
-          <input type="text" class="form-control fields" ng-model="data.activityDetails.volTotalTrainingHrs" placeholder="Enter total in hours, e.g 4.5 for 4hrs 30mins" ng-required="data.activityDetails.activityType === 'Volunteer Recruitment Phone Calling'" smart-float>
+          <h5>Total hours spent training volunteers (e.g. for 4hrs 30min put 4.30):</h5>
+          <input type="text" class="form-control fields" ng-model="data.activityDetails.volTotalTrainingHrs" ng-required="data.activityDetails.activityType === 'Volunteer Recruitment Phone Calling'" smart-float>
 
           <h5>Number of people who attended volunteer recruitment phone calling:</h5>
           <input type="text" class="form-control fields" ng-model="data.activityDetails.attendance" placeholder="Enter attendance" ng-required="data.activityDetails.activityType === 'Volunteer Recruitment Phone Calling'" integer>
   
-          <h5>Total volunteer hours committed (e.g. 3hrs 30mins is 3.5):</h5>
+          <h5>Total volunteer hours committed (e.g. for 3hrs 30mins is 3.30):</h5>
           <input type="text" class="form-control fields" ng-model="data.activityDetails.volTotalHrsCommitted" placeholder="Total hrs the new vols have commited to. For example, 3 new vols agree to attend 4hr event: 12hrs" ng-required="data.activityDetails.activityType === 'Volunteer Recruitment Phone Calling'" smart-float>
         </div>
 
@@ -160,7 +155,7 @@
           <h5>Number of people who attended gathering:</h5>
           <input type="text" class="form-control fields" ng-model="data.activityDetails.attendance" placeholder="Enter attendance" ng-required="data.activityDetails.activityType === 'Volunteer House Gathering'" integer>
 
-          <h5>Total volunteer hours committed (e.g. 3hrs 30mins is 3.5):</h5>
+          <h5>Total volunteer hours committed (e.g. for 3hrs 30mins is 3.30):</h5>
           <input type="text" class="form-control fields" ng-model="data.activityDetails.volTotalHrsCommitted" placeholder="Total hrs the new vols have commited to. For example, 3 new vols agree to attend 4hr event: 12hrs" ng-required="data.activityDetails.activityType === 'Volunteer House Gathering'" smart-float>
 
           <h5>Comment:</h5>
@@ -200,8 +195,8 @@
           <h5>Number of people who attended training session:</h5>
           <input type="text" class="form-control fields" ng-model="data.activityDetails.attendance" placeholder="Enter attendance" ng-required="data.activityDetails.activityType === 'Training Session'" integer>
 
-          <h5>Total hours spent training volunteers:</h5>
-          <input type="text" class="form-control fields" ng-model="data.activityDetails.volTotalTrainingHrs" placeholder="Enter total in hours, e.g 4.5 for 4hrs 30mins" ng-required="data.activityDetails.activityType === 'Training Session'" smart-float>
+          <h5>Total hours spent training volunteers (e.g. for 4hrs 30mins put 4.30):</h5>
+          <input type="text" class="form-control fields" ng-model="data.activityDetails.volTotalTrainingHrs" ng-required="data.activityDetails.activityType === 'Training Session'" smart-float>
   
           <h5>Comment:</h5>
           <input type="text" class="form-control fields" ng-model="data.activityDetails.comment" placeholder="Please write a comment" ng-required="data.activityDetails.activityType === 'Training Session'">
@@ -214,8 +209,6 @@
 
   </form>
 
-
   <!--<pre class="fields">form data = {{ data | json}}</pre>-->
- 
 </div>
 <div ng-include="'components/footer/footer.html'"<div>

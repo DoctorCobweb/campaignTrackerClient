@@ -38,6 +38,7 @@ angular.module('campaignTrackerApp')
         };
         $scope.ismeridian = true;
 
+	//populate form with selection data
         $scope.regions = populateForm.regions();
         $scope.data.campaignDetails.region = $scope.regions[0];
         $scope.districts = populateForm.districts();
@@ -54,39 +55,8 @@ angular.module('campaignTrackerApp')
         };
       };
 
-      /*
-      function parseActivityStringsToFloats () {
-	//want to parse from string to float these values:
-        //meaningfulInteractions
-	//answered
-	//attempts
-	//volTotalWorkHrs
-	//voTotalTrainingHrs
-	//attendance
-	//volTotalHrsCommitted
-	
-	var parsed = _.reduce($scope.data.activityDetails, function (acc, val, key) {
-	  if (key === 'comment' || key === 'activityType' || typeof(val) !== 'string') {
-            acc[key] = val;
-	    return acc;
-	  }
-          if (typeof(val) === 'string') {
-	    acc[key] = parseFloat(val, 10); 
-	    return acc;
-	  }
-	}, {});
-
-	//set parsed to be activityDetails obj
-	$scope.data.activityDetails = parsed;
-      }
-      */
-
-
       //called when user tries to submit the form
       $scope.openModal = function (size) {
-
-        //since inputs are text type we need to parse to numbers
-	//parseActivityStringsToFloats();
 
         var modalInstance = $modal.open({
           templateUrl: 'app/form/formModalContent.html',
@@ -108,8 +78,31 @@ angular.module('campaignTrackerApp')
         });
       };
 
+      function timeToDeci (time) {
+	var timeSplit = time.toString(10).split('.');
+	var timeFrac = (parseFloat("0." + timeSplit[1], 10) / 60.0) * 100;
+	var totalTime = parseFloat(timeSplit[0], 10) + timeFrac;
+
+        return totalTime;
+      }
+
       //called when user has said details are correct. go onto submitting the form now
       $scope.submitForm = function () {
+
+	//convert from hrs:mins format to decimal before sending to backend
+        if ($scope.data.activityDetails.volTotalWorkHrs) {
+          $scope.data.activityDetails.volTotalWorkHrs = 
+            timeToDeci($scope.data.activityDetails.volTotalWorkHrs);
+	}
+        if ($scope.data.activityDetails.volTotalTrainingHrs) {
+          $scope.data.activityDetails.volTotalTrainingHrs = 
+            timeToDeci($scope.data.activityDetails.volTotalTrainingHrs);
+	}
+        if ($scope.data.activityDetails.volTotalHrsCommitted) {
+          $scope.data.activityDetails.volTotalHrsCommitted= 
+            timeToDeci($scope.data.activityDetails.volTotalHrsCommitted);
+	}
+
         $http.post('/api/surveys', $scope.data).
           success(function(respData, status, headers, config){
             $scope.dataForm.$setPristine();
