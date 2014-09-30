@@ -4,25 +4,28 @@ angular.module('campaignTrackerApp')
   .directive('activityTimelineMiTotals', function () {
     return {
       scope: {
-        data: '=data'	     
+        data: '=data',
       },
       templateUrl: 'app/activityTimelineMiTotals/activityTimelineMiTotals.html',
       restrict: 'E',
       link: function (scope, element, attrs) {
-        scope.$watchCollection('[data, renderer]', function (newVal, oldVal){
+        scope.$watchCollection('[data]', function (newVal, oldVal){
           if(!newVal[0]) return;
+	  console.log('newVal:');
+          console.dir(newVal);
 
 	  var palette = new Rickshaw.Color.Palette();
 
-	  _.forEach(scope.data, function (item) {
+	  _.forEach(newVal, function (item) {
 	    item.color = palette.color();
 	  });
+
 
           var graph = new Rickshaw.Graph({
             element: angular.element('#activity_timeline_mi_totals_graph')[0],
 	    width: 750,
 	    height: 450,
-	    series: scope.data, 
+	    series: newVal[0], 
 	    renderer: 'bar' 
 	  });
 
@@ -89,7 +92,6 @@ angular.module('campaignTrackerApp')
             graph: graph,
 	    legend: legend
 	  });
-	  
 	});
       }
     };

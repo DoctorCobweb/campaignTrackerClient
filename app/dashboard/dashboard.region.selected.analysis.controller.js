@@ -16,7 +16,10 @@ angular.module('campaignTrackerApp')
   
       $http.get('/api/dashboard/region/' + $scope.region + '/analysis')
         .success(function (result) {
-          $scope.allSurveys = result.total;
+	  if (_.isEmpty(result)) {
+	    console.log('response was empty => no surveys found for region');	  
+	    return;
+	  }
           $scope.surveysSplitByActivity = result.activityTotals;
           $scope.surveysSplitByActivityTimeline = result.activityTimelineTotals;
           $scope.activityConversions = result.activityConversions;
