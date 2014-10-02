@@ -10,32 +10,50 @@ angular.module('campaignTrackerApp')
       restrict: 'E',
       link: function (scope, element, attrs) {
         scope.$watchCollection('[data]', function (newVal, oldVal) {
+          var result,
+	    k,
+	    rightIndex,
+	    tempObj,
+	    palette,
+	    minX, 
+	    maxX,
+	    tickVals = {},
+	    graph,
+	    format,
+	    xAxis, yAxis,
+	    hoverDetail;
+
           if (!newVal[0]) return;
-          console.log('IN MI WEEKLY...newVal is:');
-          console.log(newVal[0]);
 
+	  //console.log('ACTIVITY TIMELINE MI WEEKLY');
 
-	  var result = _.reduce(newVal[0], function (result, val, key) {
+	  result = _.reduce(newVal[0], function (result, val, key) {
 	    result.push({x: parseInt(key, 10), y: val});
 	    return result;
 	  },[]);
 
-
 	  result = _.sortBy(result, function (item) {return item.x;});
+	  
+	  result.reverse();
+	  minX = result[0].x, 
+	  maxX = result[result.length - 1].x,
 
-	  console.log('RESULT');
-	  console.log(result);
+	  k = 0;
+	  while (k < result.length / 2) {
+	    //swap x vals of each pair of elements in reversed result
+	    rightIndex = result.length - k - 1;
+	    tempObj = _.clone(result[k]);
+	    result[k].x = result[rightIndex].x;
+	    result[rightIndex].x = tempObj.x;
+	    k++
+	  }
 
-	  var palette = new Rickshaw.Color.Palette();
+	  //console.log('result reversed and swapped x vals:');
+	  //console.log(result);
 
-	  /*
-	  _.forEach(newVal, function (item) {
-	    item.color = palette.color(); 
-	  });
-	  */
+	  palette = new Rickshaw.Color.Palette();
 
-	  var testData = [{x:0, y:1}, {x:1, y:4}, {x:2,y:45}];
-	  var graph = new Rickshaw.Graph({
+	  graph = new Rickshaw.Graph({
 	    element: angular.element('#activity_timeline_mi_weekly_graph')[0], 
 	    width: 750,
 	    height: 450,
@@ -44,47 +62,59 @@ angular.module('campaignTrackerApp')
 	  });
 	  graph.render();
 
+	  minX = result[0].x;
+	  maxX = result[result.length - 1].x;
+	  tickVals = {};
 	  /*
-	  //just to 10 weeks out for now. add more later
-	  var format = function (n) {
-	    var tickValues = {
-	      1: '1', 
-	      2: '2', 
-	      3: '3', 
-	      4: '4', 
-	      5: '5', 
-	      6: '6', 
-	      7: '7', 
-	      8: '8', 
-	      9: '9', 
-	      10: '10'
-	    }; 
-	    return tickValues[n];
+	  //constructs a 'translator' obj for the reversal of x axis
+	  //e.g. {7:9, 8:8, 9:7}
+	  format = function (n) {
+            for (var l = 0; l <= (maxX - minX); l++) {
+	      tickVals[maxX - l] = minX + l;
+	    } 
+	    return tickVals[n];
 	  };
 	  */
 
+	  //console.log('result');
+	  //console.log(result);
 
-	  var xAxis = new Rickshaw.Graph.Axis.X({
-	    graph: graph
-	    //tickFormat: format
+	  format = function (n) {
+            var rLength = result.length,
+              m,
+	      temp,
+	      rightIndex;
+	    for (m = 0; m < (rLength / 2); m++) {
+	      temp = _.clone(result[m].x);
+	      rightIndex = rLength - m - 1;
+	      tickVals[result[m].x] = result[rightIndex].x;
+	      tickVals[result[rightIndex].x] = temp;
+	    }
+	    //console.log('tickVals');
+	    //console.log(tickVals);
+	    return tickVals[n]; 
+	  };
+
+
+	  xAxis = new Rickshaw.Graph.Axis.X({
+	    graph: graph,
+	    tickFormat: format
 	  });
 	  xAxis.render();
 
-	  var yAxis = new Rickshaw.Graph.Axis.Y({
+	  yAxis = new Rickshaw.Graph.Axis.Y({
 	    graph: graph, 
 	    orientation: 'left',
 	    element: angular.element('#activity_timeline_mi_weekly_y_axis')[0]
 	  });
 	  yAxis.render();
 
-          var hoverDetail = new Rickshaw.Graph.HoverDetail({
+          hoverDetail = new Rickshaw.Graph.HoverDetail({
 	    graph: graph,
 	    formatter: function (series, x, y, formattedX, formattedY) {
-	      return "Week " + x + ": " + y + "  meaningful interactions"; 
+	      return "Week " + tickVals[x] + ": " + y + "  meaningful interactions"; 
 	    } 
 	  });
-
-
 	});
       }
     };
