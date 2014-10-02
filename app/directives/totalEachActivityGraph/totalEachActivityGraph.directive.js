@@ -1,12 +1,14 @@
 'use strict';
 
 angular.module('campaignTrackerApp')
-  .directive('activityTotalVolWorkHrsGraph', function () {
+  .directive('totalEachActivityGraph', function () {
     return {
       scope: {
-        data: '=data'
+        data: '=datarrr',
+        roogie: '=boogie'
       },
-      templateUrl: 'app/activityTotalVolWorkHrsGraph/activityTotalVolWorkHrsGraph.html',
+      transclude: true,
+      templateUrl: 'app/directives/totalEachActivityGraph/totalEachActivityGraph.html',
       restrict: 'E',
       link: function (scope, element, attrs) {
 
@@ -15,48 +17,43 @@ angular.module('campaignTrackerApp')
             return;
           }
 
-          console.log('TOTAL VOL WORK HOURSE DIRECTIVE scope');
-          console.dir(scope);
+          //console.log('TOTAL EACH DIRECTIVE scope');
+          //console.dir(scope);
 
-          //format data into as expected by rickshaw
-          var relevantActivities = {
-            'Door Knocking': 0,
-            'Phone Banking': 1,
-            'Volunteer Recruitment Phone Calling': 2
-          };
-          
-          var formattedData = _.chain(scope.data)
-            .map(function (item, index) {
-              return {
-                x:relevantActivities[item.activity],
-                y:item.volTotalWorkHrs
-              };
-            })
-	    .sortBy('x')
-	    .value();
-	    
           var graph = new Rickshaw.Graph({
-            element: angular.element("#activity_total_vol_work_hrs_graph")[0],
+            element: angular.element("#total_each_activity_graph")[0],
             width: 750,
             height: 450,
-            series: [{data: formattedData, color: attrs.color}],
+            series: [{data: scope.data, color: attrs.color}],
             renderer: 'bar'
           });
 
           var format = function (n) {
             var tickValues = {
-              0:'DK', 
-              1:'PB',
-              2:'VRPC'
+              1:'DK', 
+              2:'NTM',
+              3:'OOO',
+              4:'PB',
+              5:'S',
+              6:'TS',
+              7:'VHG',
+              8:'VRPC',
+              9:'VHM'
             };
             return tickValues[n];
           };
 
           var formatVerbose = function (n) {
             var tickValues = {
-              0:'Door Knocking', 
-              1:'Phone Banking',
-              2:'Volunteer Recruitment Phone Calling'
+              1:'Door Knocking', 
+              2:'Neighbourhood Team Meeting',
+              3:'One On One',
+              4:'Phone Banking',
+              5:'Stall',
+              6:'Training Session',
+              7:'Volunteer House Gathering',
+              8:'Volunteer Recruitment Phone Calling',
+              9:'Voter House Meeting'
             };
             return tickValues[n];
           };
@@ -70,20 +67,20 @@ angular.module('campaignTrackerApp')
           var yAxis = new Rickshaw.Graph.Axis.Y({
             graph: graph,
             orientation: 'left',
-            element: angular.element('#activity_total_vol_work_hrs_y_axis')[0]
+            element: angular.element('#total_each_activity_y_axis')[0]
           });
           yAxis.render();
+
 
           var hoverDetail = new Rickshaw.Graph.HoverDetail({
             graph: graph,
             xFormatter: formatVerbose,
             formatter: function(series, x, y, formattedX, formattedY){
-              return y + " vol. hrs spent on " + formattedX + ".";
+              return y + " " + formattedX + " activities submitted";
             }
           });
 
           graph.render();
-
         });
       }
     };

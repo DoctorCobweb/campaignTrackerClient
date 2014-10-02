@@ -10,6 +10,6 @@ angular.module('campaignTrackerApp')
 
       $scope.setDistrict= function (district) {
         $scope.districtUrlForm = $scope.dataToUrlDistricts[district];
-        console.log('$scope.districtUrlForm: ' + $scope.districtUrlForm);
+        //console.log('$scope.districtUrlForm: ' + $scope.districtUrlForm);
       };
   }]);

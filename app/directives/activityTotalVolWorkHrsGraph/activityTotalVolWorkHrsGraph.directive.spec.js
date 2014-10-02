@@ -4,7 +4,7 @@ describe('Directive: activityTotalVolWorkHrsGraph', function () {
 
   // load the directive's module and view
   beforeEach(module('campaignTrackerApp'));
-  beforeEach(module('app/activityTotalVolWorkHrsGraph/activityTotalVolWorkHrsGraph.html'));
+  beforeEach(module('app/directives/activityTotalVolWorkHrsGraph/activityTotalVolWorkHrsGraph.html'));
 
   var element, scope;
 

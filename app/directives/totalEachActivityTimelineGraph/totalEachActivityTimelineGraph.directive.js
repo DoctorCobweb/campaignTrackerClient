@@ -7,7 +7,7 @@ angular.module('campaignTrackerApp')
         data: '=datarrr',
         roogie: '=boogie'
       },
-      templateUrl: 'app/totalEachActivityTimelineGraph/totalEachActivityTimelineGraph.html',
+      templateUrl: 'app/directives/totalEachActivityTimelineGraph/totalEachActivityTimelineGraph.html',
       restrict: 'E',
       link: function (scope, element, attrs) {
 
@@ -16,13 +16,8 @@ angular.module('campaignTrackerApp')
             return;
           }
 
-          console.log('TIMELINE DIRECTIVE scope');
-          console.dir(scope);
-          //console.log('angular.element(\'#total_each_activity_timeline_graph\')');
-          //console.log(angular.element('#total_each_activity_timeline_graph'));
-          //console.log('element');
-          //console.log(element);
-          //console.log(angular.element("#total_each_activity_timeline_y_axis")[0]);
+          //console.log('TIMELINE DIRECTIVE scope');
+          //console.dir(scope);
 
           var palette = new Rickshaw.Color.Palette();
 

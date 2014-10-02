@@ -5,11 +5,11 @@ angular.module('campaignTrackerApp')
     function ($scope, $http, $stateParams, $state) {
       $scope.stats= {}; 
 
-      console.log('$stateParams');
-      console.dir($stateParams);
+      //console.log('$stateParams');
+      //console.dir($stateParams);
 
       $scope.nextState = function (state) {
-        console.log('going into state: ' + state);
+        //console.log('going into state: ' + state);
         $state.go('dashboard.statewide.' + state, $stateParams);
       };
   }]);

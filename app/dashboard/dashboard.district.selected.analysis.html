@@ -4,15 +4,18 @@
   <p>Each graph aims to give you a new way to look at the data, whether it be as a time series for all activities, accumulated features for an activity or other.</p>
   <br />
   <br />
-  <h3>{{district}} activities over time</h3>
+
+  <h3>{{district}} weekly door knocking meaningful interactions</h3>
+  <p>The X axis is the number of weeks away from the election day, 29 Nov 2014.</p>
   <br />
   <br />
-  <total-each-activity-timeline-graph
+  <activity-timeline-mi-weekly
     color="orange"
-    datarrr="surveysSplitByActivityTimeline"
-  ></total-each-activity-timeline-graph>
+    data="activitiesTimelineMIWeekly"
+  ></activity-timeline-mi-weekly>
   <br />
   <br />
+
   <h3>{{district}} individual activity totals</h3>
   <br />
   <br />
@@ -23,6 +26,17 @@
   ></total-each-activity-graph>
   <br />
   <br />
+
+  <h3>{{district}} activities over time</h3>
+  <br />
+  <br />
+  <total-each-activity-timeline-graph
+    color="orange"
+    datarrr="surveysSplitByActivityTimeline"
+  ></total-each-activity-timeline-graph>
+  <br />
+  <br />
+
   <h3>{{district}} activity conversions</h3>
   <p>Using the total number of attempts for an activity, split it up into what percentage of attempts resulted in i) Answers ii) Meaningful Interactions.</p>
   <p>For example, to find the most efficient activity (in terms of total attempts made) for generating meaningful interactions (MI): look for the activity which has the tallest bar for MI, i.e. from the MI base to the MI top.</p>
@@ -42,6 +56,7 @@
   ></activity-conversions-graph>
   <br />
   <br />
+
   <h3>{{district}} total volunteer works hours spent</h3>
   <p>This only applies for activities for which we measure total volunteer work hours. Th
 at means for this graph there will only ever be these activities:</p>
@@ -58,22 +73,5 @@ at means for this graph there will only ever be these activities:</p>
   ></activity-total-vol-work-hrs-graph>
   <br />
   <br />
-  <h3>{{district}} total meaningful interactions</h3>
-  <p>This only applies for activities for which we measure total meaningful interactions. Th
-at means for this graph there will only ever be these activities:</p>
-  <ul>
-    <li>Door Knocking</li>
-    <li>Phone Banking</li>
-    <li>Volunteer Recriutment Phone Calling</li>
-    <li>One On One</li>
-    <li>Stall</li>
-  </ul>
-  <br />
-  <br />
-  <activity-timeline-mi-totals
-    color="orange"
-    data="activitiesTimelineMITotals"
-  ></activity-timeline-mi-totals>
-  <br />
-  <br />
+
 </div>

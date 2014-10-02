@@ -10,8 +10,8 @@ angular.module('campaignTrackerApp')
       $http.get('/api/surveys')
         .success(function (data) {
           $scope.surveys = data;
-          console.dir('$scope.surveys');
-          console.dir($scope.surveys);
+          //console.dir('$scope.surveys');
+          //console.dir($scope.surveys);
       });
 
       $scope.openModal = function (index, size) {
@@ -31,7 +31,7 @@ angular.module('campaignTrackerApp')
       };
   
       $scope.details = function (index){
-        console.log('$scope.surveys[index]');
-        console.log($scope.surveys[index]);
+        //console.log('$scope.surveys[index]');
+        //console.log($scope.surveys[index]);
       };
   }]);

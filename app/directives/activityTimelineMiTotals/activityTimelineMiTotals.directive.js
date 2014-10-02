@@ -4,9 +4,9 @@ angular.module('campaignTrackerApp')
   .directive('activityTimelineMiTotals', function () {
     return {
       scope: {
-        data: '=data',
+        data: '=data'
       },
-      templateUrl: 'app/activityTimelineMiTotals/activityTimelineMiTotals.html',
+      templateUrl: 'app/directives/activityTimelineMiTotals/activityTimelineMiTotals.html',
       restrict: 'E',
       link: function (scope, element, attrs) {
         scope.$watchCollection('[data]', function (newVal, oldVal){
@@ -19,7 +19,6 @@ angular.module('campaignTrackerApp')
 	  _.forEach(newVal, function (item) {
 	    item.color = palette.color();
 	  });
-
 
           var graph = new Rickshaw.Graph({
             element: angular.element('#activity_timeline_mi_totals_graph')[0],

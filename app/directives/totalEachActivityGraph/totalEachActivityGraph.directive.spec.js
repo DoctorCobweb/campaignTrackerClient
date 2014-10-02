@@ -2,8 +2,9 @@
 
 describe('Directive: totalEachActivityGraph', function () {
 
-  // load the directive's module
+  // load the directive's module and view
   beforeEach(module('campaignTrackerApp'));
+  beforeEach(module('app/directives/totalEachActivityGraph/totalEachActivityGraph.html'));
 
   var element,
     scope;

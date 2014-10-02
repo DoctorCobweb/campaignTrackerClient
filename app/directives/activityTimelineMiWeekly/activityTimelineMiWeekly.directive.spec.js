@@ -1,10 +1,10 @@
 'use strict';
 
-describe('Directive: activityTimelineMiTotals', function () {
+describe('Directive: activityTimelineMiWeekly', function () {
 
   // load the directive's module and view
   beforeEach(module('campaignTrackerApp'));
-  beforeEach(module('app/activityTimelineMiTotals/activityTimelineMiTotals.html'));
+  beforeEach(module('app/directives/activityTimelineMiWeekly/activityTimelineMiWeekly.html'));
 
   var element, scope;
 
@@ -13,9 +13,9 @@ describe('Directive: activityTimelineMiTotals', function () {
   }));
 
   it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<activity-timeline-m-i-totals></activity-timeline-m-i-totals>');
+    element = angular.element('<activity-timeline-mi-weekly></activity-timeline-mi-weekly>');
     element = $compile(element)(scope);
     scope.$apply();
-    expect(element.text()).toBe('this is the activityTimelineMiTotals directive');
+    expect(element.text()).toBe('this is the activityTimelineMiWeekly directive');
   }));
 });

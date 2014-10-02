@@ -7,13 +7,13 @@ angular.module('campaignTrackerApp')
       $scope.stats = {}; 
       $scope.dataPerson = prettyUrl.urlToDataPeople[$stateParams.person];
 
-      console.log('$stateParams');
-      console.dir($stateParams);
+      //console.log('$stateParams');
+      //console.dir($stateParams);
   
       $http.get('/api/dashboard/person/summary/' + $scope.dataPerson)
         .success(function (data) {
           $scope.stats = data;
-          console.log('data from $http.get:');
-          console.dir(data);
+          //console.log('data from $http.get:');
+          //console.dir(data);
       });
   }]);

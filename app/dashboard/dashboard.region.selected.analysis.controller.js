@@ -8,16 +8,16 @@ angular.module('campaignTrackerApp')
       $scope.stats= {}; 
       $scope.region = prettyUrl.urlToDataRegions[$location.path().split('/')[3]];
 
-      console.log('ANALYSIS');
-      console.log('$stateParams');
-      console.dir($stateParams);
-      console.log('$scope.region');
-      console.dir($scope.region);
+      //console.log('ANALYSIS');
+      //console.log('$stateParams');
+      //console.dir($stateParams);
+      //console.log('$scope.region');
+      //console.dir($scope.region);
   
       $http.get('/api/dashboard/region/' + $scope.region + '/analysis')
         .success(function (result) {
 	  if (_.isEmpty(result)) {
-	    console.log('response was empty => no surveys found for region');	  
+	    //console.log('response was empty => no surveys found for region');	  
 	    return;
 	  }
           $scope.surveysSplitByActivity = result.activityTotals;
@@ -25,5 +25,6 @@ angular.module('campaignTrackerApp')
           $scope.activityConversions = result.activityConversions;
           $scope.activityTotalVolWorkHrs = result.activityTotalVolWorkHrs;
           $scope.activitiesTimelineMITotals = result.activityTimelineMITotals;
+          $scope.activitiesTimelineMIWeekly= result.activityTimelineMIWeekly;
         });
   }]);

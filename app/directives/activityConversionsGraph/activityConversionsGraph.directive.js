@@ -6,17 +6,16 @@ angular.module('campaignTrackerApp')
       scope: {
         data: '=data'
       },
-      templateUrl: 'app/activityConversionsGraph/activityConversionsGraph.html',
+      templateUrl: 'app/directives/activityConversionsGraph/activityConversionsGraph.html',
       restrict: 'E',
       link: function (scope, element, attrs) {
-
         scope.$watchCollection('[data, renderer]', function(newVal, oldVal){
           if(!newVal[0]){
             return;
           }
 
-          console.log('ACTIVITY CONVERSIONS DIRECTIVE scope');
-          console.dir(scope);
+          //console.log('ACTIVITY CONVERSIONS DIRECTIVE scope');
+          //console.dir(scope);
 
           //must munge scope.data into rickshaw format
           var relevantActivities = [
@@ -30,12 +29,8 @@ angular.module('campaignTrackerApp')
           //we use this as our ordering when formatting data into {x: , y: } style
           var availActivities = 
             _.intersection(relevantActivities, _.pluck(scope.data, 'activity'));
-          //var availActivities = _.intersection (
-          //  relevantActivities, _.map(scope.data, function (item) {
-          //    return _.keys(item)[0];
-          //}));
-          console.log('availActivities');
-          console.log(availActivities);
+          //console.log('availActivities');
+          //console.log(availActivities);
           
           //this is the directive data format we will add to
           var dData = {};
@@ -56,13 +51,12 @@ angular.module('campaignTrackerApp')
             //console.log('normalizedAttempts');
             //console.log(normalizedAttempts);
             
-            //dData.total_attempts_percent.push({x:x, y:normalizedAttempts});
             dData.answers_percent.push({x:x, y:aStats.totAnsweredPercent});
             dData.meaningful_interactions_percent.push({x:x, y:aStats.totMIPercent});
           }); 
 
-          console.log('dData');
-          console.log(dData);
+          //console.log('dData');
+          //console.log(dData);
 
           //desired format
           //[{name: , data: },{},{}]
@@ -74,16 +68,11 @@ angular.module('campaignTrackerApp')
             dataSeries.push(aStack);
           });
 
-          console.log('dataSeries');
-          console.log(dataSeries);
-
-         
           var palette = new Rickshaw.Color.Palette();   
           _.forEach(dataSeries, function(item) {
             item.color = palette.color();
           });
           
-
           var graph = new Rickshaw.Graph({
             element: angular.element("#activity_conversions_graph")[0],
             width: 750,
@@ -92,7 +81,6 @@ angular.module('campaignTrackerApp')
             renderer: 'bar'
           });
 
-          
           var format = function (n) {
             var tickValues = {};
             _.forEach(availActivities, function (val, index) {

@@ -5,13 +5,13 @@ angular.module('campaignTrackerApp')
     function ($scope, $http, $stateParams) {
       $scope.stats= {}; 
 
-      console.log('$stateParams');
-      console.dir($stateParams);
+      //console.log('$stateParams');
+      //console.dir($stateParams);
   
       $http.get('/api/dashboard/statewide/summary')
         .success(function (data) {
           $scope.stats = data;
-          console.log('data from $http.get:');
-          console.dir(data);
+          //console.log('data from $http.get:');
+          //console.dir(data);
         });
   }]);

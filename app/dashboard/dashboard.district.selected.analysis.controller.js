@@ -8,8 +8,8 @@ angular.module('campaignTrackerApp')
       $scope.stats= {}; 
       $scope.district = prettyUrl.urlToDataDistricts[$location.path().split('/')[3]];
 
-      console.log('$stateParams');
-      console.dir($stateParams);
+      //console.log('$stateParams');
+      //console.dir($stateParams);
   
       $http.get('/api/dashboard/district/' + $scope.district + '/analysis')
         .success(function (result) {
@@ -19,5 +19,6 @@ angular.module('campaignTrackerApp')
           $scope.activityConversions = result.activityConversions;
           $scope.activityTotalVolWorkHrs = result.activityTotalVolWorkHrs;
           $scope.activitiesTimelineMITotals = result.activityTimelineMITotals;
+          $scope.activitiesTimelineMIWeekly= result.activityTimelineMIWeekly;
         });
   }]);

@@ -8,13 +8,13 @@ angular.module('campaignTrackerApp')
      
       $scope.dataNTeam = prettyUrl.urlToDataNTeams[$stateParams.team];
 
-      console.log('$stateParams');
-      console.dir($stateParams);
+      //console.log('$stateParams');
+      //console.dir($stateParams);
   
       $http.get('/api/dashboard/neighbourhoodTeam/summary/' + $scope.dataNTeam)
         .success(function (data) {
           $scope.stats = data;
-          console.log('data from $http.get:');
-          console.dir(data);
+          //console.log('data from $http.get:');
+          //console.dir(data);
       });
   }]);
