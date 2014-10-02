@@ -11,15 +11,12 @@ angular.module('campaignTrackerApp')
       link: function (scope, element, attrs) {
         scope.$watchCollection('[data]', function (newVal, oldVal) {
           var result,
-	    k,
 	    rightIndex,
-	    tempObj,
 	    palette,
-	    minX, 
-	    maxX,
 	    tickVals = {},
 	    graph,
 	    format,
+	    minX, maxX,
 	    xAxis, yAxis,
 	    hoverDetail;
 
@@ -34,23 +31,6 @@ angular.module('campaignTrackerApp')
 
 	  result = _.sortBy(result, function (item) {return item.x;});
 	  
-	  result.reverse();
-	  minX = result[0].x, 
-	  maxX = result[result.length - 1].x,
-
-	  k = 0;
-	  while (k < result.length / 2) {
-	    //swap x vals of each pair of elements in reversed result
-	    rightIndex = result.length - k - 1;
-	    tempObj = _.clone(result[k]);
-	    result[k].x = result[rightIndex].x;
-	    result[rightIndex].x = tempObj.x;
-	    k++
-	  }
-
-	  //console.log('result reversed and swapped x vals:');
-	  //console.log(result);
-
 	  palette = new Rickshaw.Color.Palette();
 
 	  graph = new Rickshaw.Graph({
@@ -62,39 +42,14 @@ angular.module('campaignTrackerApp')
 	  });
 	  graph.render();
 
-	  minX = result[0].x;
-	  maxX = result[result.length - 1].x;
-	  tickVals = {};
-	  /*
-	  //constructs a 'translator' obj for the reversal of x axis
-	  //e.g. {7:9, 8:8, 9:7}
+          minX = result[0].x;
+          maxX = result[result.length -1].x;
 	  format = function (n) {
             for (var l = 0; l <= (maxX - minX); l++) {
-	      tickVals[maxX - l] = minX + l;
+	      tickVals[minX + l] = minX + l;
 	    } 
 	    return tickVals[n];
 	  };
-	  */
-
-	  //console.log('result');
-	  //console.log(result);
-
-	  format = function (n) {
-            var rLength = result.length,
-              m,
-	      temp,
-	      rightIndex;
-	    for (m = 0; m < (rLength / 2); m++) {
-	      temp = _.clone(result[m].x);
-	      rightIndex = rLength - m - 1;
-	      tickVals[result[m].x] = result[rightIndex].x;
-	      tickVals[result[rightIndex].x] = temp;
-	    }
-	    //console.log('tickVals');
-	    //console.log(tickVals);
-	    return tickVals[n]; 
-	  };
-
 
 	  xAxis = new Rickshaw.Graph.Axis.X({
 	    graph: graph,
